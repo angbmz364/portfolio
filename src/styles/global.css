@@ -32,7 +32,7 @@
 }
 
 .hero-p {
-  @apply text-2xl text-secondary font-normal
+  @apply text-xl text-secondary font-normal
 }
 
 .hero-title {
