@@ -1,0 +1,31 @@
+---
+import Badge from "./ui/Badge.astro"
+import InfoCard from "./ui/InfoCard.astro"
+---
+
+<section class="flex-center w-screen py-36">
+  <div class="section flex flex-col lg:flex-row items-center justify-between gap-10">
+    
+    <div class="w-full lg:max-w-2/5 space-y-10 self-start">
+      <h2 class="text-4xl font-timesten font-bold">Ingenieria con propósito</h2>
+      <p class="text-md font-timesten text-secondary">Me centro en la intersección del diseño y la ingenieria. Cada pixel es calculado, cada componente está tipado, y cada animación está diseñada intencionalmente para mejorar la experiencia del usuario.</p>
+    </div>
+
+    <div class="flex flex-col w-full justify-start gap-5 h-full">
+      <div>
+        <Badge name="React"/>
+        <Badge name="Next.js"/>
+        <Badge name="Typescript"/>
+        <Badge name="Tailwind CSS"/>
+        <Badge name="Astro"/>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <InfoCard p="Años programando" title="4+" />
+        <InfoCard p="Proyectos construidos" title="12+" />
+        <InfoCard p="Herramientas dominadas" title="8+" />
+      </div>
+    </div>
+
+  </div>
+</section>
