@@ -1,0 +1,103 @@
+---
+import Button from "./ui/Button.astro";
+---
+
+<section class="hero flex-center">
+  <div class="section flex justify-between items-center">
+    <div class="space-y-6 [&>p]:text-lg">
+      <p class="hero-p mb-2 hero-top">¡Hola! Soy SaskDev,</p>
+      <h1 class="hero-title">Desarrollador <br /> Frontend</h1>
+      <p class="hero-p hero-sub">+4 años programando.</p>
+      <Button content="Sobre mi" href="#about-me" classes="hero-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="size-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+        </svg>
+      </Button>
+    </div>
+    <div class="hero-image hidden lg:block">
+      <img 
+        src="/public/logo-black.svg" 
+        alt="Logo de SaskDev"
+        class="size-96 rounded-full bg-primary p-5"
+      >
+    </div>
+  </div>
+</section>
+
+<script>
+
+import gsap from 'gsap';
+
+const tl = gsap.timeline({
+  defaults: {
+    ease: "power3.out",
+  },
+});
+
+gsap.set(
+  [
+    ".hero-top",
+    ".hero-title",
+    ".hero-sub",
+    ".hero-btn",
+    ".hero-image"
+  ],
+  {
+    y: 32,
+    opacity: 0,
+    filter: "blur(12px)",
+  }
+);
+
+tl.to(".hero-glow", {
+  scale: 1,
+  opacity: 0.15,
+  duration: 0.7,
+  ease: "power2.out",
+})
+
+.to(".hero-top", {
+  y: 0,
+  opacity: 1,
+  filter: "blur(0px)",
+  duration: 0.35,
+}, "-=0.35")
+
+.to(".hero-title", {
+  y: 0,
+  opacity: 1,
+  filter: "blur(0px)",
+  duration: 0.45,
+}, "-=0.2")
+
+.to(".hero-sub", {
+  y: 0,
+  opacity: 1,
+  filter: "blur(0px)",
+  duration: 0.35,
+}, "-=0.28")
+
+.to(".hero-btn", {
+  y: 0,
+  opacity: 1,
+  filter: "blur(0px)",
+  duration: 0.35,
+}, "-=0.25")
+
+.to(".hero-image", {
+  y: 0,
+  opacity: 1,
+  filter: "blur(0px)",
+  duration: 0.30,
+}, "-=0.2");
+</script>

@@ -1,0 +1,9 @@
+---
+const {content, href, classes } = Astro.props; 
+
+---
+
+<a href={href} class={`button inline-flex items-center justify-center gap-2 mt-3 hover:scale-105 transition-all ${classes ? classes : ''}`}>
+  <slot />
+  {content}
+</a>

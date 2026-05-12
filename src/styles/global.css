@@ -8,17 +8,35 @@
   --color-accent: #3B82F6;
 }
 
+.hero-p {
+  @apply text-2xl text-secondary font-normal
+}
+
+.hero-title {
+  @apply text-5xl sm:text-6xl md:text-7xl leading-[1.2] font-bold text-primary
+}
+
+.button {
+  @apply px-8 py-2 rounded-full text-center text-lg font-normal text-primary bg-sec-bg
+}
+
 body {
+  overflow-x: hidden;
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .section {
   max-width: 1200px;
-  width: 100%;
+  width: 90dvw;
 }
 
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hero {
+  height: calc(100dvh - 64px);
+  width: 100dvw;
 }
