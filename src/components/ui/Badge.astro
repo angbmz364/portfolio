@@ -1,7 +1,13 @@
 ---
-const { name } = Astro.props;
+const { name, small } = Astro.props;
+
+const classes = small ? 
+'px-6 py-1 text-xs mx-1 font-mono rounded-full border border-white/5 bg-neutral-800/40 font-thin text-white inline-block my-1' 
+: 
+'px-6 py-1 text-sm mx-1 font-mono rounded-full border border-white/5 bg-sec-bg font-thin text-white inline-block my-1'
+
 ---
 
-<span class="px-6 py-1 text-sm mx-1 font-mono rounded-full border border-white/5 bg-sec-bg font-thin text-white inline-block my-1">
+<span class={classes}>
   {name}
 </span>

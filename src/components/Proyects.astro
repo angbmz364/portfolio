@@ -1,0 +1,37 @@
+---
+import ProjectCard from "./ui/ProjectCard.astro"
+---
+
+<section class="flex-center w-screen py-40">
+  <div class="section flex flex-col items-start space-y-32 justify-start">
+    
+    <h2 class="text-4xl font-timesten font-bold">Trabajos Seleccionados</h2>
+    <div class="w-full grid grid-cols-3 gap-10">
+      <ProjectCard 
+        title="Stocky - Inventario" 
+        description="Sistema de inventario minimalista para negocios en perú"
+        stack={["Next.js", "Tailwind CSS", "PostgreSQL"]}
+        demo="https://iphone-website364.netlify.app"
+        image="https://odoocdn.com/openerp_website/static/src/img/apps/inventory/optimize_warehouse.webp"
+        code={false} 
+      />
+      <ProjectCard 
+        title="iPhone 15 - Sitio Web" 
+        description="Sitio web del iPhone, con animaciones limpias y un estilo premium."
+        stack={["Vite", "React", "Tailwind CSS"]}
+        demo="https://iphone-website364.netlify.app"
+        image="https://obedalvarado.pw/blog/wp-content/uploads/2017/06/system_open_source.png"
+        code="https://github.com/angbmz364/iphone-project" 
+      />
+      <ProjectCard 
+        title="iPhone 15 - Sitio Web" 
+        description="Sitio web del iPhone, con animaciones limpias y un estilo premium."
+        stack={["Vite", "React", "Tailwind CSS"]}
+        demo="https://iphone-website364.netlify.app"
+        image="https://dcx13p9dsx90t.cloudfront.net/assets/features/control_inventario-9984a11572b39d52e5b234ba33ac02f7c286807a6f0a01e1d8107254e4e4393f.gif"
+        code="https://github.com/angbmz364/iphone-project" 
+      />
+    </div>
+
+  </div>
+</section>
