@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const { 
 	description = "Portafolio personal de SaskDev, programador web Frontend con 5 años de experiencia, experto en interfaces limpias y modernas.", 
 	title = "SaskDev - Desarrollador Web Frontend"
@@ -17,7 +19,7 @@ const {
 		<meta name="description" content={description}>
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-bg text-primary">
 		<slot />
 	</body>
 </html>
