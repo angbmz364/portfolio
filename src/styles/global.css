@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
+@import "@fontsource/jetbrains-mono/500.css";
+
+@import "@fontsource/geist-sans/400.css";
+@import "@fontsource/geist-sans/600.css";
+@import "@fontsource/geist-sans/700.css";
+
 @theme {
   --color-bg: #0A0A0A;
   --color-sec-bg: #111111;
   --color-primary: #FAFAFA;
   --color-secondary: #A1A1AA;
   --color-accent: #8B5CF6;
+  --font-sans: "Geist Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 .hero-p {
@@ -37,6 +45,6 @@ body {
 }
 
 .hero {
-  height: calc(100dvh - 64px);
+  height: 100dvh;
   width: 100dvw;
 }
