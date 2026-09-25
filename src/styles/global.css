@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+.button-cta {
+    padding: .4em;
+    border: 1px solid white;
+}
+.button-cta:hover {
+    background: white;
+    color: #0a0a0a;
+}
+
+.nav-link:hover {
+    color: #fff;
+}

@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/onest/wght.css";
+import '../styles/global.css';
 
 const { title, description } = Astro.props;
 ---
@@ -20,7 +21,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-neutral-950">
-    <slot />
+    <main><slot /></main>
   </body>
 </html>
 
@@ -28,12 +29,11 @@ const { title, description } = Astro.props;
   @import "tailwindcss";
 
   body {
-    color: #fff;
-    display: flex;
+    color: #f0efee;
+    display: grid;
+    place-content: center;
+    max-width: 1200px;
     overflow-x: hidden;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: "Onest Variable", sans-serif;
+    font-family: 'Onest Variable', sans-serif;
   }
 </style>
