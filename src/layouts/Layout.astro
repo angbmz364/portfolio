@@ -1,19 +1,16 @@
 ---
 import "@fontsource-variable/onest/wght.css";
 
-import Header from "../sections/Header.astro";
-import Footer from "../sections/Footer.astro";
-
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="author" content="SaskDev" />
-    <meta name="keywords" content="saskdev, minecraft servers tools" />
+    <meta name="keywords" content="saskdev, software engineer, Angel Bernal, portfolio" />
     <meta name="description" content=`${description}` />
     <link
       rel="favicon icon"
@@ -23,10 +20,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-neutral-950">
-	  <div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-    <Header />
     <slot />
-    <Footer />
   </body>
 </html>
 
