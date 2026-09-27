@@ -13,15 +13,15 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 ---
 
-<Layout title={`${project.name} — SaskDev`} description={project.tagline}>
+<Layout title={`${project.name} by SaskDev`} description={project.tagline}>
     <Sidebar currentPage="work" />
     <main class="flex-1 max-w-3xl flex items-start justify-start self-start flex-col px-12 py-10 space-y-1">
-        <section class="min-h-screen space-y-8 pb-24">
-            <a href="/#work" class="text-sm text-neutral-500 hover:text-blue-500 transition-all duration-150">
+        <section class="min-h-screen space-y-8 py-40">
+            <a href="/#work" class="text-sm text-neutral-500">
                 ← Work
             </a>
 
-            <header class="space-y-3">
+            <header class="space-y-3 pt-8">
                 <h1 class="text-4xl sm:text-5xl font-semibold">{project.name}</h1>
                 <p class="text-lg text-neutral-400 max-w-xl">{project.tagline}</p>
             </header>
@@ -35,6 +35,21 @@ const { project } = Astro.props;
             </div>
 
             <p class="max-w-xl text-neutral-200">{project.description}</p>
+
+            <section class="space-y-3">
+                <h2 class="text-3xl font-semibold">Why did I build it?</h2>
+                <p>{project.why}</p>
+            </section>
+
+            <section class="space-y-3">
+                <h2 class="text-3xl font-semibold">Challenges</h2>
+                <p>{project.challenges}</p>
+            </section>
+
+            <section class="space-y-3">
+                <h2 class="text-3xl font-semibold">Learning</h2>
+                <p>{project.learning}</p>
+            </section>
 
             <a href={project.repo} target="_blank" class="button-cta inline-block w-fit">View on GitHub</a>
         </section>

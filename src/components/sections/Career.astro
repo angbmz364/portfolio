@@ -33,13 +33,13 @@ const experience = [
                     <a
                         href={url}
                         target="_blank"
-                        class="flex items-baseline justify-between gap-6 py-5 border-t border-neutral-900 hover:text-blue-500 transition-all duration-150"
+                        class="flex flex-col items-start gap-1 py-5 border-t border-neutral-900 hover:text-blue-500 transition-all duration-150 md:flex-row md:items-baseline md:justify-between md:gap-6"
                     >
                         <span class="flex flex-col gap-1">
                             <span class="text-base font-semibold text-neutral-100">{title}</span>
                             <span class="text-sm text-neutral-500">{company}</span>
                         </span>
-                        <span class="text-sm text-neutral-600 whitespace-nowrap">{date}</span>
+                        <span class="text-sm text-neutral-600 md:whitespace-nowrap">{date}</span>
                     </a>
                 </li>
             ))
