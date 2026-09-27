@@ -1,0 +1,48 @@
+---
+import Github from "../logos/Github.astro";
+import LinkedIn from "../logos/LinkedIn.astro";
+
+const project_working_on = {
+    name: "WayPeru",
+    repo: "https://github.com/angbmz364/wayperu",
+};
+---
+
+<section id="home" class="min-h-screen flex flex-col justify-center space-y-6">
+    <p class="text-xs uppercase tracking-widest text-blue-500">Peru</p>
+
+    <header>
+        <h1 class="text-5xl font-semibold">SaskDev</h1>
+        <p class="p">Software Engineer</p>
+    </header>
+
+    <div>
+        <p>
+            Currently building <a href={project_working_on.repo} target="_blank"
+                >{project_working_on.name}</a
+            >
+        </p>
+        <div class="flex flex-row items-center gap-4">
+            <p>Working on Mobile</p>
+            <p>|</p>
+            <p>Exploring ML</p>
+        </div>
+    </div>
+
+    <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">Web Development</span>
+        <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">Mobile</span>
+        <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">Machine Learning</span>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <button class="button-cta">Resume</button>
+        <a href="https://github.com/angbmz364" target="_blank" aria-label="GitHub"><Github /></a>
+        <a href="https://www.linkedin.com/in/angel-david-bernal-mendez-0697ab3aa/" target="_blank" aria-label="LinkedIn"><LinkedIn /></a>
+    </div>
+
+    <div class="flex items-center gap-4 pt-2">
+        <a href="#work" class="button-cta">View Work</a>
+        <a href="#contact" class="hover:text-white transition-all duration-150">Get in touch</a>
+    </div>
+</section>
