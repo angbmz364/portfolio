@@ -4,29 +4,29 @@ import Instagram from "./logos/Instagram.astro";
 
 const { currentPage = "home" } = Astro.props;
 
-const href = (id) => (currentPage === "home" ? `#${id}` : `/#${id}`);
+const href = (id: any) => (currentPage === "home" ? `#${id}` : `/#${id}`);
 ---
 
-<nav class="sticky top-0 h-screen w-64 shrink-0 border-r border-neutral-900 px-8 py-10 overflow-y-auto">
-    <div class="flex flex-col justify-between h-full min-w-20">
-        <div class="space-y-8">
-            <a href="/">
+<nav class="w-full bg-neutral-950 border-b border-neutral-900 overflow-x-auto md:w-64 md:shrink-0 md:border-r md:border-b-0 md:overflow-x-visible">
+    <div class="sticky top-0 z-40 flex items-center justify-between min-w-max px-4 py-4 md:flex-col md:h-screen md:min-w-20 md:px-8 md:py-10 md:overflow-y-auto">
+        <div class="md:space-y-8 mt-30">
+            <a href="/" class="hidden md:block">
                 <img src="/logo-white.svg" alt="SaskDev Logo" class="size-16" />
             </a>
-            <ul class="space-y-1">
+            <ul class="flex gap-6 md:block md:space-y-1">
                 <li><a class="nav-link" href={href("home")}><span class="nav-index">01</span>Home</a></li>
                 <li><a class="nav-link" href={href("career")}><span class="nav-index">02</span>Career</a></li>
                 <li><a class="nav-link" href={href("work")}><span class="nav-index">03</span>Work</a></li>
+                <li><a class="nav-link" href={href("contact")}><span class="nav-index">04</span>Contact</a></li>
                 <li>
                     <a class:list={["nav-link", currentPage === "blog" && "active"]} href="/blog">
-                        <span class="nav-index">04</span>Blog
+                        <span class="nav-index">05</span>Blog
                     </a>
                 </li>
-                <li><a class="nav-link" href={href("contact")}><span class="nav-index">05</span>Contact</a></li>
             </ul>
         </div>
 
-        <div class="space-y-4">
+        <div class="hidden md:block space-y-4">
             <div class="flex items-center gap-2 text-sm text-neutral-400">
                 <span class="size-1.5 rounded-full bg-blue-500 inline-block"></span>
                 Available for work

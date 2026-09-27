@@ -10,6 +10,7 @@ node_modules/
 
 # editor config
 .vscode/
+.claude/
 
 # logs
 npm-debug.log*

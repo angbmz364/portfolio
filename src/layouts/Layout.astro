@@ -31,14 +31,19 @@ const { title, description } = Astro.props;
   body {
     color: #f0efee;
     font-family: 'Onest Variable', sans-serif;
+    overflow-x: hidden;
   }
   .page {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     padding: 0 clamp(1.5rem, 4vw, 4rem);
-    overflow-x: hidden;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+  }
+  @media (min-width: 768px) {
+    .page {
+      flex-direction: row;
+    }
   }
 </style>
