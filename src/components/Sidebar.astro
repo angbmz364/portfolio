@@ -7,37 +7,82 @@ const { currentPage = "home" } = Astro.props;
 const href = (id: any) => (currentPage === "home" ? `#${id}` : `/#${id}`);
 ---
 
-<nav class="w-full bg-neutral-950 border-b border-neutral-900 overflow-x-auto md:w-64 md:shrink-0 md:border-r md:border-b-0 md:overflow-x-visible">
-    <div class="sticky top-0 z-40 flex items-center justify-between min-w-max px-4 py-4 md:flex-col md:h-screen md:min-w-20 md:px-8 md:py-10 md:overflow-y-auto">
-        <div class="md:space-y-8 mt-30">
-            <a href="/" class="hidden md:block">
-                <img src="/logo-white.svg" alt="SaskDev Logo" class="size-16" />
+<nav class="w-full bg-neutral-950 border-b border-neutral-900 md:w-64 md:shrink-0 md:border-r md:border-b-0">
+    <div class="sticky top-0 z-40 bg-neutral-950 px-4 py-4 md:flex md:flex-col md:h-screen md:min-w-20 md:px-8 md:py-10 md:overflow-y-auto">
+        <div class="flex items-center justify-between md:hidden">
+            <a href="/">
+                <img src="/logo-white.svg" alt="SaskDev Logo" class="size-10" />
             </a>
-            <ul class="flex gap-6 md:block md:space-y-1">
-                <li><a class="nav-link" href={href("home")}><span class="nav-index">01</span>Home</a></li>
-                <li><a class="nav-link" href={href("career")}><span class="nav-index">02</span>Career</a></li>
-                <li><a class="nav-link" href={href("work")}><span class="nav-index">03</span>Work</a></li>
-                <li><a class="nav-link" href={href("contact")}><span class="nav-index">04</span>Contact</a></li>
-                <li>
-                    <a class:list={["nav-link", currentPage === "blog" && "active"]} href="/blog">
-                        <span class="nav-index">05</span>Blog
-                    </a>
-                </li>
-            </ul>
+            <button
+                type="button"
+                class="nav-toggle inline-flex size-10 -mr-2 items-center justify-center text-neutral-300"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                aria-controls="nav-panel"
+            >
+                <svg class="nav-icon-open size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+                </svg>
+                <svg class="nav-icon-close hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
 
-        <div class="hidden md:block space-y-4">
-            <div class="flex items-center gap-2 text-sm text-neutral-400">
-                <span class="size-1.5 rounded-full bg-blue-500 inline-block"></span>
-                Available for work
+        <div id="nav-panel" class="nav-panel hidden md:contents">
+            <div class="pt-4 md:pt-0 md:space-y-8 md:mt-30">
+                <a href="/" class="hidden md:block">
+                    <img src="/logo-white.svg" alt="SaskDev Logo" class="size-16" />
+                </a>
+                <ul class="flex flex-col divide-y divide-neutral-900 border-y border-neutral-900 md:block md:space-y-1 md:divide-y-0 md:border-0">
+                    <li class="py-1 md:py-0"><a class="nav-link" href={href("home")}><span class="nav-index">01</span>Home</a></li>
+                    <li class="py-1 md:py-0"><a class="nav-link" href={href("career")}><span class="nav-index">02</span>Career</a></li>
+                    <li class="py-1 md:py-0"><a class="nav-link" href={href("work")}><span class="nav-index">03</span>Work</a></li>
+                    <li class="py-1 md:py-0"><a class="nav-link" href={href("contact")}><span class="nav-index">04</span>Contact</a></li>
+                    <li class="py-1 md:py-0">
+                        <a class:list={["nav-link", currentPage === "blog" && "active"]} href="/blog">
+                            <span class="nav-index">05</span>Blog
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="flex gap-4">
-                <a href="https://x.com/angbmz" target="_blank" aria-label="X"><X /></a>
-                <a href="https://www.instagram.com/angbmz364/" target="_blank" aria-label="Instagram"><Instagram /></a>
+
+            <div class="hidden md:block space-y-4">
+                <div class="flex items-center gap-2 text-sm text-neutral-400">
+                    <span class="size-1.5 rounded-full bg-blue-500 inline-block"></span>
+                    Available for work
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://x.com/angbmz" target="_blank" aria-label="X"><X /></a>
+                    <a href="https://www.instagram.com/angbmz364/" target="_blank" aria-label="Instagram"><Instagram /></a>
+                </div>
+                <a href="mailto:angel@diofstudios.com" class="text-sm text-neutral-400 hover:text-white block break-all">
+                    angel@diofstudios.com
+                </a>
             </div>
-            <a href="mailto:angel@diofstudios.com" class="text-sm text-neutral-400 hover:text-white block break-all">
-                angel@diofstudios.com
-            </a>
         </div>
     </div>
 </nav>
+
+<script>
+    document.querySelectorAll<HTMLButtonElement>(".nav-toggle").forEach((toggle) => {
+        const nav = toggle.closest("nav");
+        const panel = nav?.querySelector<HTMLElement>("#nav-panel");
+        if (!panel) return;
+
+        const setOpen = (open: boolean) => {
+            toggle.setAttribute("aria-expanded", String(open));
+            panel.classList.toggle("hidden", !open);
+            toggle.querySelector(".nav-icon-open")?.classList.toggle("hidden", open);
+            toggle.querySelector(".nav-icon-close")?.classList.toggle("hidden", !open);
+        };
+
+        toggle.addEventListener("click", () => {
+            setOpen(toggle.getAttribute("aria-expanded") !== "true");
+        });
+
+        panel.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => setOpen(false));
+        });
+    });
+</script>
