@@ -7,8 +7,8 @@ const { currentPage = "home" } = Astro.props;
 const href = (id) => (currentPage === "home" ? `#${id}` : `/#${id}`);
 ---
 
-<nav class="border-l border-r pr-35 border-neutral-900 h-screen">
-    <div class="pt-50 sticky top-0 flex flex-col justify-between h-[calc(100vh-8rem)] min-w-20">
+<nav class="fixed top-0 left-0 h-screen w-64 border-r border-neutral-900 bg-neutral-950 px-8 py-10 overflow-y-auto z-20">
+    <div class="flex flex-col justify-between h-full min-w-20">
         <div class="space-y-8">
             <a href="/">
                 <img src="/logo-white.svg" alt="SaskDev Logo" class="size-16" />
