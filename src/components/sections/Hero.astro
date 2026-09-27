@@ -8,8 +8,8 @@ const project_working_on = {
 };
 ---
 
-<section id="home" class="min-h-screen flex flex-col justify-center space-y-6">
-    <p class="text-xs uppercase tracking-widest text-blue-500">Peru</p>
+<section id="home" class="py-40 flex flex-col justify-center space-y-6">
+    <p class="text-xs uppercase tracking-widest text-blue-500">En/Es</p>
 
     <header>
         <h1 class="text-5xl font-semibold">SaskDev</h1>
@@ -22,6 +22,7 @@ const project_working_on = {
                 >{project_working_on.name}</a
             >
         </p>
+        
         <div class="flex flex-row items-center gap-4">
             <p>Working on Mobile</p>
             <p>|</p>
@@ -29,20 +30,26 @@ const project_working_on = {
         </div>
     </div>
 
+    
     <div class="flex flex-wrap gap-2">
         <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">Web Development</span>
-        <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">Mobile</span>
+        <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">System Design</span>
         <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">Machine Learning</span>
     </div>
 
-    <div class="flex items-center gap-4">
-        <button class="button-cta">Resume</button>
-        <a href="https://github.com/angbmz364" target="_blank" aria-label="GitHub"><Github /></a>
-        <a href="https://www.linkedin.com/in/angel-david-bernal-mendez-0697ab3aa/" target="_blank" aria-label="LinkedIn"><LinkedIn /></a>
+    <div class="flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <button class="button-cta">Resume</button>
+            <a href="https://github.com/angbmz364" target="_blank" aria-label="GitHub"><Github /></a>
+            <a href="https://www.linkedin.com/in/angel-david-bernal-mendez-0697ab3aa/" target="_blank" aria-label="LinkedIn"><LinkedIn /></a>
+        </div>
+        <a href="#contact" class="hover:text-white transition-all duration-150 gap-2 underline flex items-center hover:[&>svg]:translate-x-1">
+            Get in touch 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 transition-transform">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+
+        </a>
     </div>
 
-    <div class="flex items-center gap-4 pt-2">
-        <a href="#work" class="button-cta">View Work</a>
-        <a href="#contact" class="hover:text-white transition-all duration-150">Get in touch</a>
-    </div>
 </section>
