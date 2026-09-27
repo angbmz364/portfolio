@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Sidebar from "../components/Sidebar.astro";
+---
+
+<Layout title="Blog — SaskDev" description="Writing from SaskDev — coming soon.">
+    <Sidebar currentPage="blog" />
+    <main class="mr-auto w-screen flex items-start justify-start self-start flex-col pt-50 space-y-1">
+        <section class="min-h-screen space-y-6">
+            <h1 class="text-2xl font-semibold flex items-baseline gap-3">
+                <span class="text-sm text-neutral-600">04</span>Blog
+            </h1>
+            <p class="text-neutral-500">No posts yet — check back soon.</p>
+        </section>
+    </main>
+</Layout>
