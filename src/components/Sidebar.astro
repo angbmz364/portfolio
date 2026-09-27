@@ -1,15 +1,43 @@
-<nav class="border-l border-r pr-35 border-neutral-900 h-screen">
-    <div class="pt-50 sticky flex space-y-3 flex-col items-start justify-center min-w-20">
-        <img src="/logo-white.svg" 
-             alt="SaskDev Logo"
-             class="size-16"
-        >
-        <ul class="space-y-1">
-            <li><a class="nav-link" href="#">Career</a></li>
-            <li><a class="nav-link" href="#">Projects</a></li>
-            <li><a class="nav-link" href="#">Blog</a></li>
-        </ul>
-        <button class="button-cta">Contact</button>
-    </div>
+---
+import X from "./logos/X.astro";
+import Instagram from "./logos/Instagram.astro";
 
+const { currentPage = "home" } = Astro.props;
+
+const href = (id) => (currentPage === "home" ? `#${id}` : `/#${id}`);
+---
+
+<nav class="border-l border-r pr-35 border-neutral-900 h-screen">
+    <div class="pt-50 sticky top-0 flex flex-col justify-between h-[calc(100vh-8rem)] min-w-20">
+        <div class="space-y-8">
+            <a href="/">
+                <img src="/logo-white.svg" alt="SaskDev Logo" class="size-16" />
+            </a>
+            <ul class="space-y-1">
+                <li><a class="nav-link" href={href("home")}><span class="nav-index">01</span>Home</a></li>
+                <li><a class="nav-link" href={href("career")}><span class="nav-index">02</span>Career</a></li>
+                <li><a class="nav-link" href={href("work")}><span class="nav-index">03</span>Work</a></li>
+                <li>
+                    <a class:list={["nav-link", currentPage === "blog" && "active"]} href="/blog">
+                        <span class="nav-index">04</span>Blog
+                    </a>
+                </li>
+                <li><a class="nav-link" href={href("contact")}><span class="nav-index">05</span>Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-4">
+            <div class="flex items-center gap-2 text-sm text-neutral-400">
+                <span class="size-1.5 rounded-full bg-blue-500 inline-block"></span>
+                Available for work
+            </div>
+            <div class="flex gap-4">
+                <a href="https://x.com/angbmz" target="_blank" aria-label="X"><X /></a>
+                <a href="https://www.instagram.com/angbmz364/" target="_blank" aria-label="Instagram"><Instagram /></a>
+            </div>
+            <a href="mailto:angel@diofstudios.com" class="text-sm text-neutral-400 hover:text-white block break-all">
+                angel@diofstudios.com
+            </a>
+        </div>
+    </div>
 </nav>
