@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import { projects } from "../../data/projects.js";
+
+export function getStaticPaths() {
+    return projects.map((project) => ({
+        params: { slug: project.slug },
+        props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.name} — SaskDev`} description={project.tagline}>
+    <Sidebar currentPage="work" />
+    <main class="mr-auto w-screen flex items-start justify-start self-start flex-col pt-50 space-y-1">
+        <section class="min-h-screen space-y-8 pb-24">
+            <a href="/#work" class="text-sm text-neutral-500 hover:text-blue-500 transition-all duration-150">
+                ← Work
+            </a>
+
+            <header class="space-y-3">
+                <h1 class="text-4xl sm:text-5xl font-semibold">{project.name}</h1>
+                <p class="text-lg text-neutral-400 max-w-xl">{project.tagline}</p>
+            </header>
+
+            <div class="flex flex-wrap gap-2">
+                {
+                    project.tags.map((tag) => (
+                        <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">{tag}</span>
+                    ))
+                }
+            </div>
+
+            <p class="max-w-xl text-neutral-200">{project.description}</p>
+
+            <a href={project.repo} target="_blank" class="button-cta inline-block w-fit">View on GitHub</a>
+        </section>
+    </main>
+</Layout>
