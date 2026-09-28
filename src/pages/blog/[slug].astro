@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog", ({ data }) => !data.draft);
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) =>
+    date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+---
+
+<Layout title={`${post.data.title} — SaskDev`} description={post.data.description}>
+    <Sidebar currentPage="blog" />
+    <main class="flex-1 max-w-3xl flex items-start justify-start self-start flex-col px-12 py-10 space-y-1">
+        <section class="min-h-screen space-y-8 py-40">
+            <a href="/blog" class="text-sm text-neutral-500">
+                ← Blog
+            </a>
+
+            <header class="space-y-3 pt-8">
+                <h1 class="text-4xl sm:text-5xl font-semibold">{post.data.title}</h1>
+                <p class="text-lg text-neutral-400 max-w-xl">{post.data.description}</p>
+                <p class="text-sm text-neutral-600">{formatDate(post.data.publishDate)}</p>
+            </header>
+
+            {post.data.tags && (
+                <div class="flex flex-wrap gap-2">
+                    {post.data.tags.map((tag) => (
+                        <span class="px-3 py-1 text-xs rounded-full border border-neutral-800">{tag}</span>
+                    ))}
+                </div>
+            )}
+
+            <div class="prose prose-invert prose-neutral max-w-none">
+                <Content />
+            </div>
+        </section>
+    </main>
+</Layout>

@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+.prose :where(a):not(:where([class~="not-prose"] *)) {
+    color: #3b82f6;
+}
 
 .button-cta {
     padding: .4em;

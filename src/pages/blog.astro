@@ -1,16 +1,46 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Sidebar from "../components/Sidebar.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const formatDate = (date: Date) =>
+    date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 ---
 
-<Layout title="Blog — SaskDev" description="Writing from SaskDev — coming soon.">
+<Layout title="Blog — SaskDev" description="Writing from SaskDev.">
     <Sidebar currentPage="blog" />
     <main class="flex-1 max-w-3xl flex items-start justify-start self-start flex-col px-12 py-10 space-y-1">
         <section class="min-h-screen space-y-6">
             <h1 class="text-2xl font-semibold flex items-baseline gap-3">
                 <span class="text-sm text-neutral-600">05</span>Blog
             </h1>
-            <p class="text-neutral-500">No posts yet — check back soon.</p>
+
+            {posts.length === 0 && (
+                <p class="text-neutral-500">No posts yet — check back soon.</p>
+            )}
+
+            <ol>
+                {
+                    posts.map((post) => (
+                        <li>
+                            <a
+                                href={`/blog/${post.id}`}
+                                class="flex items-center justify-between gap-6 py-5 border-t border-neutral-900 hover:text-blue-500 transition-all duration-150"
+                            >
+                                <span class="flex flex-col gap-1">
+                                    <span class="text-base font-semibold text-neutral-100">{post.data.title}</span>
+                                    <span class="text-sm text-neutral-500 max-w-md">{post.data.description}</span>
+                                </span>
+                                <span class="text-sm text-neutral-600 shrink-0">{formatDate(post.data.publishDate)}</span>
+                            </a>
+                        </li>
+                    ))
+                }
+            </ol>
         </section>
     </main>
 </Layout>
