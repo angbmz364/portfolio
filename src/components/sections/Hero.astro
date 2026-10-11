@@ -39,7 +39,7 @@ const project_working_on = {
 
     <div class="flex justify-between items-center">
         <div class="flex items-center gap-4">
-            <button class="button-cta">Resume</button>
+          <a class="button-cta" href="/resume.pdf" id="resume-btn" >Resume</a>
             <div class="items-center gap-4 hidden md:flex">
                 <a href="https://github.com/angbmz364" target="_blank" aria-label="GitHub"><Github /></a>
                 <a href="https://www.linkedin.com/in/angel-david-bernal-mendez-0697ab3aa/" target="_blank" aria-label="LinkedIn"><LinkedIn /></a>
@@ -55,3 +55,10 @@ const project_working_on = {
     </div>
 
 </section>
+
+<script>
+  const resumeButton = document.getElementById("resume-btn");
+  resumeButton.addEventListener( 'click', () => {
+    a.download = "saskdev-resume";
+  } )
+</script>
