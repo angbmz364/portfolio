@@ -4,7 +4,7 @@ const experience = [
         title: "Infrastructure Engineer",
         company: "DiofStudios",
         date: "Oct 2026 — Present",
-        url: "https://diofhost.com",
+        url: "https://diofstudios.com",
     },
     {
         title: "Full-Stack Engineer",
@@ -15,8 +15,7 @@ const experience = [
     {
         title: "Freelancer Web Developer",
         company: "Freelancer",
-        date: "Dec 2025 - Present",
-        url: "/#",
+        date: "Dec 2025 - Present"
     },
 ];
 ---
@@ -31,7 +30,7 @@ const experience = [
             experience.map(({ title, company, date, url }) => (
                 <li>
                     <a
-                        href={url}
+                        href={ href ? href : '#' }
                         target="_blank"
                         class="flex flex-col items-start gap-1 py-5 border-t border-neutral-900 hover:text-blue-500 transition-all duration-150 md:flex-row md:items-baseline md:justify-between md:gap-6"
                     >
