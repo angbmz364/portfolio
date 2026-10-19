@@ -241,11 +241,62 @@ const faqs = [
             </div>
         </section>
 
+        <section id="contacto" class="py-24 space-y-8 border-t border-neutral-900 w-full scroll-mt-4">
+            <h2 class="section-title"><span class="text-sm text-neutral-600">06</span>Contacto</h2>
+            <p class="text-2xl md:text-4xl font-semibold text-neutral-100! tracking-tight text-balance max-w-2xl">
+                Cuéntanos tu idea y recibe una cotización gratis en menos de 24 horas.
+            </p>
+
+            <form id="quote" class="grid gap-5 max-w-xl pt-4">
+                <label class="field">
+                    <span>Tu nombre</span>
+                    <input name="name" required autocomplete="name" />
+                </label>
+                <label class="field">
+                    <span>Tu negocio</span>
+                    <input name="business" autocomplete="organization" />
+                </label>
+                <label class="field">
+                    <span>¿Qué necesitas?</span>
+                    <select name="service">
+                        <option>Página web</option>
+                        <option>Tienda online</option>
+                        <option>Software o app a medida</option>
+                        <option>IA y automatización</option>
+                        <option>Mantenimiento y soporte</option>
+                        <option>Aún no lo sé</option>
+                    </select>
+                </label>
+                <label class="field">
+                    <span>Cuéntanos más</span>
+                    <textarea name="message" rows="4"></textarea>
+                </label>
+                <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+                    <button type="submit" class="cta-primary">Enviar por WhatsApp</button>
+                    <a class="underline text-neutral-300 hover:text-white" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                </div>
+            </form>
+
+            <a href="tel:+51976392715" class="text-neutral-400 hover:text-white transition-all duration-150 block w-fit">+51 976 392 715</a>
+        </section>
+
         <Footer />
     </main>
 </Layout>
 
 <script is:inline define:vars={{ PHONE }}>
+    const form = document.getElementById("quote");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const d = Object.fromEntries(new FormData(form));
+        const text = [
+            `Hola SaskDev, soy ${d.name}${d.business ? ` de ${d.business}` : ""}.`,
+            `Me interesa: ${d.service}.`,
+            d.message || "",
+        ].filter(Boolean).join(" ");
+        window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    });
+
     const car = document.getElementById("carousel");
     document.querySelectorAll(".car-btn").forEach((b) =>
         b.addEventListener("click", () => {
@@ -320,6 +371,25 @@ const faqs = [
         transition: background 150ms, color 150ms;
     }
     .car-btn:hover { background: #fff; color: #0a0a0a; }
+
+    .field { display: grid; gap: 0.4rem; }
+    .field span { font-size: 0.85rem; color: #a3a3a3; }
+    .field input,
+    .field select,
+    .field textarea {
+        width: 100%;
+        background: transparent;
+        border: 1px solid #262626;
+        border-radius: 2px;
+        padding: 0.75em 0.9em;
+        font: inherit;
+        font-size: 1rem;
+        color: #f0efee;
+    }
+    .field select option { background: #0a0a0a; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { outline: 2px solid #3b82f6; outline-offset: 1px; border-color: #3b82f6; }
 
     .faq summary::-webkit-details-marker { display: none; }
 </style>
