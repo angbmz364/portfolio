@@ -14,6 +14,39 @@ const commitments = [
     ["Por escrito", "Alcance, precio y plazo acordados antes de empezar."],
 ];
 
+const services = [
+    {
+        name: "Páginas web",
+        text: "Sitio rápido, claro y pensado para que te escriban por WhatsApp. Se ve bien en el celular, que es donde te buscan.",
+        cta: "Quiero mi web",
+        msg: "Hola SaskDev, quiero una página web para mi negocio.",
+    },
+    {
+        name: "Tiendas online",
+        text: "Catálogo, carrito y cobros con Yape, Plin o tarjeta. Tú administras tus productos sin depender de nadie.",
+        cta: "Quiero vender online",
+        msg: "Hola SaskDev, quiero una tienda online para mi negocio.",
+    },
+    {
+        name: "Software y apps a medida",
+        text: "Sistemas de reservas, inventario, ventas o gestión interna, y apps móviles, hechos para cómo trabaja tu empresa.",
+        cta: "Quiero mi software",
+        msg: "Hola SaskDev, necesito un software o app a medida.",
+    },
+    {
+        name: "IA y automatización",
+        text: "Asistentes, respuestas automáticas y procesos que ahorran horas a tu equipo. Experiencia real con modelos que corren incluso sin internet.",
+        cta: "Quiero automatizar",
+        msg: "Hola SaskDev, quiero automatizar procesos con IA en mi negocio.",
+    },
+    {
+        name: "Mantenimiento y soporte",
+        text: "Cambios, actualizaciones, seguridad y respaldos para que tu web o sistema siga funcionando mes a mes.",
+        cta: "Quiero soporte",
+        msg: "Hola SaskDev, necesito mantenimiento para mi web o sistema.",
+    },
+];
+
 ---
 
 <Layout
@@ -47,6 +80,24 @@ const commitments = [
                     </li>
                 ))}
             </ul>
+        </section>
+
+        <section id="servicios" class="py-24 space-y-8 border-t border-neutral-900 w-full scroll-mt-4">
+            <h2 class="section-title"><span class="text-sm text-neutral-600">01</span>Servicios</h2>
+            <ol>
+                {services.map((s) => (
+                    <li class="grid gap-4 py-8 border-t border-neutral-900 md:grid-cols-[1fr_auto] md:items-center md:gap-10">
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-semibold text-neutral-100">{s.name}</h3>
+                            <p class="max-w-xl">{s.text}</p>
+                        </div>
+                        <a class="cta-link" href={wa(s.msg)} target="_blank" rel="noopener">
+                            {s.cta}
+                            <svg class="size-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                        </a>
+                    </li>
+                ))}
+            </ol>
         </section>
 
         <Footer />
