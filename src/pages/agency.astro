@@ -65,6 +65,13 @@ const demos = [
     },
 ];
 
+const steps = [
+    ["Hablamos", "Nos cuentas tu negocio y qué quieres lograr, por WhatsApp o en una llamada corta."],
+    ["Propuesta", "Recibes alcance, precio y plazo por escrito en menos de 24 horas."],
+    ["Construimos", "Ves avances reales mientras trabajamos y ajustas lo que haga falta."],
+    ["Lanzamos", "Publicamos, te enseñamos a usarlo y quedamos disponibles para soporte."],
+];
+
 ---
 
 <Layout
@@ -173,6 +180,19 @@ const demos = [
                             </span>
                             <svg class="size-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                         </a>
+                    </li>
+                ))}
+            </ol>
+        </section>
+
+        <section id="proceso" class="py-24 space-y-8 border-t border-neutral-900 w-full scroll-mt-4">
+            <h2 class="section-title"><span class="text-sm text-neutral-600">03</span>Proceso</h2>
+            <ol class="grid md:grid-cols-2 border-t border-neutral-900">
+                {steps.map(([title, text], i) => (
+                    <li class="py-8 md:pr-8 border-b border-neutral-900 md:[&:nth-child(odd)]:border-r md:[&:nth-child(even)]:pl-8 space-y-2">
+                        <p class="text-sm text-neutral-600">{String(i + 1).padStart(2, "0")}</p>
+                        <h3 class="text-xl font-semibold text-neutral-100">{title}</h3>
+                        <p>{text}</p>
                     </li>
                 ))}
             </ol>
