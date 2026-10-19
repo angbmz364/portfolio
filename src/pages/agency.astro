@@ -392,4 +392,9 @@ const faqs = [
     .field textarea:focus { outline: 2px solid #3b82f6; outline-offset: 1px; border-color: #3b82f6; }
 
     .faq summary::-webkit-details-marker { display: none; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        * { transition: none !important; }
+    }
 </style>
