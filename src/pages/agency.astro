@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AgencyNav from "../components/agency/AgencyNav.astro";
+import Footer from "../sections/Footer.astro";
+import { projects } from "../data/projects.js";
+
+const PHONE = "51976392715";
+const EMAIL = "angel@diofstudios.com";
+const wa = (text: string) => `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
+
+const commitments = [
+    ["Cotización gratis", "Te respondemos en menos de 24 horas, sin compromiso."],
+    ["Todo es tuyo", "El dominio, el código y las cuentas quedan a tu nombre."],
+    ["Por escrito", "Alcance, precio y plazo acordados antes de empezar."],
+];
+
+---
+
+<Layout
+    title="SaskDev Agency | Páginas web, software e IA para negocios en Perú"
+    description="Agencia de desarrollo web y software en Perú. Páginas web, tiendas online, apps a medida e IA. Cotización gratis en menos de 24 horas."
+>
+    <AgencyNav wa={wa("Hola SaskDev, quiero cotizar un proyecto.")} />
+
+    <main class="flex-1 min-w-0 max-w-4xl flex items-start justify-start md:self-start flex-col px-0 md:px-12 py-10">
+        <section id="home" class="py-24 md:py-32 space-y-8 w-full">
+            <h1 class="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-tight text-balance">
+                Tu negocio, vendiendo en internet las 24 horas.
+            </h1>
+            <p class="text-lg max-w-xl">
+                Creamos páginas web, tiendas online, software e inteligencia artificial para negocios del Perú.
+                Tú nos cuentas qué necesitas, nosotros lo construimos y lo ponemos en línea.
+            </p>
+            <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
+                <a class="cta-primary" href={wa("Hola SaskDev, quiero cotizar un proyecto.")} target="_blank" rel="noopener">
+                    Cotizar por WhatsApp
+                    <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </a>
+                <a href="#servicios" class="underline text-neutral-300 hover:text-white">Ver servicios</a>
+            </div>
+
+            <ul class="grid md:grid-cols-3 border-t border-neutral-900 mt-16">
+                {commitments.map(([title, text]) => (
+                    <li class="py-6 md:pr-6 border-b md:border-b-0 md:border-r border-neutral-900 last:border-0 md:pl-6 first:md:pl-0 space-y-1">
+                        <p class="font-semibold text-neutral-100!">{title}</p>
+                        <p class="text-sm">{text}</p>
+                    </li>
+                ))}
+            </ul>
+        </section>
+
+        <Footer />
+    </main>
+</Layout>
+
+<style is:global>
+    .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+    }
+    .cta-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6em;
+        padding: 0.8em 1.3em;
+        background: #3b82f6;
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid #3b82f6;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: background 150ms, border-color 150ms;
+    }
+    .cta-primary:hover {
+        background: #60a5fa;
+        border-color: #60a5fa;
+        color: #0a0a0a;
+    }
+    .cta-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6em;
+        color: #f0efee;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: color 150ms;
+    }
+    .cta-link:hover { color: #3b82f6; }
+    .cta-link:hover svg { transform: translateX(4px); }
+
+</style>
