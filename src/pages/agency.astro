@@ -72,6 +72,13 @@ const steps = [
     ["Lanzamos", "Publicamos, te enseñamos a usarlo y quedamos disponibles para soporte."],
 ];
 
+const faqs = [
+    ["¿Cuánto cuesta?", "Depende del alcance: una web simple y un sistema a medida son proyectos muy distintos. Cuéntanos qué necesitas y te enviamos una cotización gratis en menos de 24 horas."],
+    ["¿Cuánto demora?", "Lo definimos por escrito en la propuesta, según el tamaño del proyecto. Antes de empezar sabes exactamente cuándo se entrega."],
+    ["¿El dominio y la web son míos?", "Sí. Dominio, hosting, código y cuentas se registran a tu nombre. Si un día quieres trabajar con otro equipo, te lo entregamos todo."],
+    ["¿Puedo cobrar con Yape, Plin o tarjeta?", "Sí. Integramos pasarelas de pago locales en tu tienda o sistema."],
+    ["¿Trabajan con negocios fuera de Lima?", "Sí. Todo el proceso es remoto, por WhatsApp, llamada o videollamada, para cualquier ciudad del Perú."],
+];
 ---
 
 <Layout
@@ -219,6 +226,21 @@ const steps = [
             </div>
         </section>
 
+        <section id="preguntas" class="py-24 space-y-8 border-t border-neutral-900 w-full scroll-mt-4">
+            <h2 class="section-title"><span class="text-sm text-neutral-600">05</span>Preguntas</h2>
+            <div class="border-b border-neutral-900">
+                {faqs.map(([q, a]) => (
+                    <details class="faq border-t border-neutral-900 group">
+                        <summary class="flex items-center justify-between gap-6 py-5 cursor-pointer list-none text-neutral-100 font-semibold hover:text-blue-500 transition-colors duration-150">
+                            {q}
+                            <svg class="size-4 shrink-0 transition-transform duration-150 group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        </summary>
+                        <p class="pb-6 max-w-xl">{a}</p>
+                    </details>
+                ))}
+            </div>
+        </section>
+
         <Footer />
     </main>
 </Layout>
@@ -299,4 +321,5 @@ const steps = [
     }
     .car-btn:hover { background: #fff; color: #0a0a0a; }
 
+    .faq summary::-webkit-details-marker { display: none; }
 </style>
