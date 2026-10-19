@@ -47,6 +47,24 @@ const services = [
     },
 ];
 
+const demos = [
+    {
+        name: "Chullos Travel Perú",
+        text: "Rediseño de agencia de turismo en Cusco: tours claros y cada botón lleva directo a WhatsApp.",
+        img: "/agency/chullos-travel-peru.webp",
+    },
+    {
+        name: "Tours Cusco Machu Picchu",
+        text: "De un enlace en Beacons a una web propia con rutas, cómo operan y cotización inmediata.",
+        img: "/agency/tours-cusco-machu-picchu.webp",
+    },
+    {
+        name: "Viajes Cusco Perú",
+        text: "Rediseño con precios publicados, horarios y contacto visibles desde la primera pantalla.",
+        img: "/agency/viajes-cusco-peru.webp",
+    },
+];
+
 ---
 
 <Layout
@@ -100,9 +118,79 @@ const services = [
             </ol>
         </section>
 
+        <section id="trabajos" class="py-24 space-y-8 border-t border-neutral-900 w-full scroll-mt-4">
+            <div class="flex items-end justify-between gap-6">
+                <h2 class="section-title"><span class="text-sm text-neutral-600">02</span>Trabajos</h2>
+                <div class="flex gap-2">
+                    <button type="button" class="car-btn" data-dir="-1" aria-label="Anterior">
+                        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" /></svg>
+                    </button>
+                    <button type="button" class="car-btn" data-dir="1" aria-label="Siguiente">
+                        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                    </button>
+                </div>
+            </div>
+            <p class="max-w-xl">
+                Así quedaría la web de un negocio como el tuyo. Son demos de rediseño que hicimos para agencias de turismo en Cusco, no sitios publicados por ellos.
+            </p>
+
+            <div id="carousel" class="carousel -mx-4 px-4 md:mx-0 md:px-0" tabindex="0" aria-label="Demos de rediseño">
+                {demos.map((d) => (
+                    <figure class="carousel-item">
+                        <div class="aspect-[16/10] bg-neutral-900 overflow-hidden border border-neutral-900">
+                            <img src={d.img} alt={`Demo de rediseño de ${d.name}`} loading="lazy" class="w-full h-full object-cover object-top" />
+                        </div>
+                        <figcaption class="pt-4 space-y-1">
+                            <p class="font-semibold text-neutral-100!">{d.name}</p>
+                            <p class="text-sm">{d.text}</p>
+                        </figcaption>
+                    </figure>
+                ))}
+            </div>
+
+            <div class="pt-8 space-y-2">
+                <h3 class="text-xl font-semibold text-neutral-100">Software propio que ya construimos</h3>
+                <p class="max-w-xl">Productos reales de ingeniería, con mapas, machine learning e IA sin conexión.</p>
+            </div>
+            <ol>
+                {projects.map(({ slug, name }) => ({
+                    slug,
+                    name,
+                    tagline: {
+                        wayperu: "App móvil que traza la ruta más segura por todo el Perú.",
+                        centinela: "Machine learning que detecta la mosca de la fruta y avisa al agricultor.",
+                        nova: "Asistente educativo sin conexión para estudiantes rurales.",
+                    }[slug],
+                })).map(({ slug, name, tagline }) => (
+                    <li>
+                        <a
+                            href={`/work/${slug}`}
+                            class="flex items-center justify-between gap-6 py-5 border-t border-neutral-900 hover:text-blue-500 transition-all duration-150"
+                        >
+                            <span class="flex flex-col gap-1">
+                                <span class="text-base font-semibold text-neutral-100">{name}</span>
+                                <span class="text-sm text-neutral-500 max-w-md">{tagline}</span>
+                            </span>
+                            <svg class="size-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                        </a>
+                    </li>
+                ))}
+            </ol>
+        </section>
+
         <Footer />
     </main>
 </Layout>
+
+<script is:inline define:vars={{ PHONE }}>
+    const car = document.getElementById("carousel");
+    document.querySelectorAll(".car-btn").forEach((b) =>
+        b.addEventListener("click", () => {
+            const item = car.querySelector(".carousel-item");
+            car.scrollBy({ left: Number(b.dataset.dir) * (item.offsetWidth + 24), behavior: "smooth" });
+        })
+    );
+</script>
 
 <style is:global>
     .section-title {
@@ -143,5 +231,31 @@ const services = [
     }
     .cta-link:hover { color: #3b82f6; }
     .cta-link:hover svg { transform: translateX(4px); }
+
+    .carousel {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+    .carousel::-webkit-scrollbar { display: none; }
+    .carousel-item {
+        flex: 0 0 88%;
+        scroll-snap-align: start;
+    }
+    @media (min-width: 768px) {
+        .carousel-item { flex-basis: 78%; }
+    }
+    .car-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid #404040;
+        transition: background 150ms, color 150ms;
+    }
+    .car-btn:hover { background: #fff; color: #0a0a0a; }
 
 </style>
