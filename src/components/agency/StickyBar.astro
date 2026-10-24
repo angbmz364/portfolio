@@ -1,0 +1,58 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+---
+
+<div class="bar" id="bar"><WhatsAppButton /></div>
+
+<style>
+    .bar {
+        --fg: var(--white);
+        --bg: var(--black);
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 40;
+        padding: 16px;
+        display: none;
+        background: var(--black);
+        border-top: 1px solid rgba(250, 250, 250, 0.16);
+        transform: translateY(120%);
+        transition: transform 0.35s var(--ease);
+        pointer-events: none;
+    }
+    .bar :global(.btn) { width: 100%; background: var(--white); color: var(--black); }
+    @media (hover: hover) {
+        .bar :global(.btn:hover) { background: var(--white); color: var(--black); }
+    }
+    @media (max-width: 899px) {
+        .bar { display: block; }
+        .bar.show { transform: none; pointer-events: auto; }
+        .bar:not(.show) :global(.btn) { visibility: hidden; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .bar { transition: none; }
+    }
+</style>
+
+<script>
+    // mobile only: show once the hero CTA has scrolled away, hide on the closing band
+    const bar = document.getElementById("bar")!;
+    const heroCta = document.getElementById("hero-cta");
+    const closing = document.getElementById("cierre");
+    let pastHero = false;
+    let inClosing = false;
+    const update = () => bar.classList.toggle("show", pastHero && !inClosing);
+
+    if ("IntersectionObserver" in window && heroCta && closing) {
+        new IntersectionObserver((entries) => {
+            const e = entries[0];
+            pastHero = !e.isIntersecting && e.boundingClientRect.top < 0;
+            update();
+        }).observe(heroCta);
+        new IntersectionObserver((entries) => {
+            inClosing = entries[0].isIntersecting;
+            update();
+        }, { threshold: 0.15 }).observe(closing);
+    }
+</script>
