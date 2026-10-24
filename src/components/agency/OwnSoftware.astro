@@ -1,0 +1,32 @@
+---
+import ArrowIcon from "./ArrowIcon.astro";
+import { software } from "../../data/agency.js";
+---
+
+<div class="own">
+    <h3 class="h3 rv">Software propio que ya construimos</h3>
+    <div class="grid">
+        {software.map((p, i) => (
+            <a class="rv" style={`--i:${i}`} href={p.href} target="_blank" rel="noopener">
+                <span class="t"><strong>{p.name}</strong><ArrowIcon /></span>
+                <p>{p.text}</p>
+            </a>
+        ))}
+    </div>
+</div>
+
+<style>
+    .own { margin-top: clamp(3rem, 6vw, 5rem); border-top: 1px solid var(--line); padding-top: clamp(2.5rem, 5vw, 4rem); }
+    .grid { display: grid; gap: 0; margin-top: 2rem; }
+    a { display: block; padding: 1.25rem 0; border-top: 1px solid var(--line); text-decoration: none; color: var(--fg); min-height: 48px; }
+    a p { margin-top: 0.5rem; }
+    .t { display: flex; align-items: center; gap: 0.5rem; }
+    .t :global(svg) { width: 22px; height: 22px; transition: transform 0.2s var(--ease); }
+    @media (min-width: 900px) {
+        .grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        a { padding: 1.5rem 0 0; }
+    }
+    @media (hover: hover) {
+        a:hover .t :global(svg) { transform: translateX(6px); }
+    }
+</style>

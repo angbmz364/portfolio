@@ -1,0 +1,100 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+import ArrowIcon from "./ArrowIcon.astro";
+import OwnSoftware from "./OwnSoftware.astro";
+import { works, WORK_MSG } from "../../data/agency.js";
+---
+
+<section class="sec light" data-theme="light" id="trabajos" aria-labelledby="h-trab">
+    <div class="wrap head">
+        <div>
+            <h2 id="h-trab" class="rv">Webs que ya hicimos.</h2>
+            <p class="lead rv" style="--i:1">Hoteles y agencias de turismo con una web pensada para recibir consultas.</p>
+        </div>
+        <div class="nav" role="group" aria-label="Navegar trabajos">
+            <button class="round" id="prev" type="button" aria-label="Trabajo anterior"><ArrowIcon direction="left" width={1.5} /></button>
+            <button class="round" id="next" type="button" aria-label="Trabajo siguiente"><ArrowIcon width={1.5} /></button>
+        </div>
+    </div>
+    <div class="car" id="car" tabindex="0" role="region" aria-label="Trabajos">
+        {works.map((w) => (
+            <figure class="card">
+                <div class="shot"><img src={w.img} alt={`Web de ${w.name}`} width="1200" height="750" loading="lazy" /></div>
+                <figcaption><strong>{w.name}</strong><span>{w.text}</span></figcaption>
+            </figure>
+        ))}
+    </div>
+    <div class="wrap">
+        <OwnSoftware />
+        <div class="cta rv"><WhatsAppButton size="lg" msg={WORK_MSG} label="Quiero una web así" icon={false} /></div>
+    </div>
+</section>
+
+<style>
+    .head { display: grid; gap: 1.5rem; align-items: end; }
+    @media (min-width: 900px) { .head { grid-template-columns: 1fr auto; } }
+    .head .lead { margin-top: 1.5rem; }
+    .nav { display: flex; gap: 0.75rem; }
+    .round {
+        width: 56px;
+        height: 56px;
+        border-radius: 999px;
+        border: 1px solid var(--fg);
+        background: transparent;
+        color: var(--fg);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s, transform 0.12s, opacity 0.2s;
+    }
+    .round :global(svg) { width: 22px; height: 22px; }
+    .round:active { transform: scale(0.97); }
+    .round[disabled] { opacity: 0.3; cursor: default; }
+    @media (hover: hover) {
+        .round:not([disabled]):hover { background: var(--fg); color: var(--bg); }
+    }
+    .car {
+        display: flex;
+        gap: 24px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: var(--pad);
+        padding: clamp(2.5rem, 5vw, 4rem) var(--pad) 0;
+        margin: 0 auto;
+        max-width: var(--maxw);
+        scrollbar-width: none;
+        overscroll-behavior-x: contain;
+    }
+    .car::-webkit-scrollbar { display: none; }
+    .car::after { content: ""; flex: 0 0 1px; }
+    .card { flex: 0 0 82%; scroll-snap-align: start; margin: 0; }
+    @media (min-width: 900px) { .card { flex-basis: 70%; } }
+    .shot { border: 1px solid var(--line); aspect-ratio: 16 / 10; overflow: hidden; background: var(--line); }
+    .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    figcaption { padding-top: 1.1rem; }
+    figcaption strong { display: block; font-weight: 600; color: var(--fg); }
+    figcaption span { color: var(--ink2); display: block; margin-top: 0.15rem; }
+    .cta { margin-top: clamp(2.5rem, 5vw, 4rem); }
+</style>
+
+<script>
+    const car = document.getElementById("car")!;
+    const prev = document.getElementById("prev") as HTMLButtonElement;
+    const next = document.getElementById("next") as HTMLButtonElement;
+
+    const step = () => car.querySelector(".card")!.getBoundingClientRect().width + 24;
+    const sync = () => {
+        prev.disabled = car.scrollLeft < 4;
+        next.disabled = car.scrollLeft + car.clientWidth >= car.scrollWidth - 4;
+    };
+
+    prev.addEventListener("click", () => car.scrollBy({ left: -step(), behavior: "smooth" }));
+    next.addEventListener("click", () => car.scrollBy({ left: step(), behavior: "smooth" }));
+    car.addEventListener("scroll", sync, { passive: true });
+    car.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") { e.preventDefault(); next.click(); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); prev.click(); }
+    });
+    addEventListener("resize", sync);
+    sync();
+</script>
