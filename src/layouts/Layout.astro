@@ -2,11 +2,11 @@
 import "@fontsource-variable/onest/wght.css";
 import '../styles/global.css';
 
-const { title, description } = Astro.props;
+const { title, description, lang = "en", bare = false } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -19,9 +19,10 @@ const { title, description } = Astro.props;
       type="image/svg"
     />
     <title>{title}</title>
+    <slot name="head" />
   </head>
   <body class="bg-neutral-950">
-    <div class="page"><slot /></div>
+    {bare ? <slot /> : <div class="page"><slot /></div>}
   </body>
 </html>
 
