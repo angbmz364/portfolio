@@ -1,0 +1,63 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+---
+
+<header class="top" id="top">
+    <div class="wrap">
+        <a class="logo" href="#inicio" aria-label="SaskDev, inicio">
+            <img class="lw" src="/logo-white.svg" alt="SaskDev" width="40" height="40" />
+            <img class="lb" src="/logo-black.svg" alt="" width="40" height="40" />
+        </a>
+        <WhatsAppButton size="sm" />
+    </div>
+</header>
+
+<style>
+    .top {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        height: var(--headh);
+        margin-bottom: calc(var(--headh) * -1);
+        background: rgba(10, 10, 10, 0.92);
+        color: var(--white);
+        --bg: var(--black);
+        --fg: var(--white);
+        transition: background-color 0.2s, color 0.2s;
+    }
+    .top.on-light {
+        background: rgba(250, 250, 250, 0.92);
+        color: var(--black);
+        --bg: var(--white);
+        --fg: var(--black);
+    }
+    .wrap {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+    .logo { display: block; height: 48px; width: 48px; position: relative; }
+    .logo img { position: absolute; left: 0; top: 4px; width: 40px; height: 40px; transition: opacity 0.2s; }
+    .lb { opacity: 0; }
+    .top.on-light .lw { opacity: 0; }
+    .top.on-light .lb { opacity: 1; }
+</style>
+
+<script>
+    // header colors follow the section under it
+    const top = document.getElementById("top")!;
+    const sections = [...document.querySelectorAll<HTMLElement>("[data-theme]")];
+    const sync = () => {
+        const y = top.offsetHeight / 2;
+        const hit = sections.find((s) => {
+            const r = s.getBoundingClientRect();
+            return r.top <= y && r.bottom > y;
+        });
+        top.classList.toggle("on-light", hit?.dataset.theme === "light");
+    };
+    addEventListener("scroll", sync, { passive: true });
+    addEventListener("resize", sync);
+    sync();
+</script>

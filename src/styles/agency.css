@@ -1,0 +1,111 @@
+.ag {
+    --black: #0a0a0a;
+    --white: #fafafa;
+    --sans: "Onest Variable", "Onest", system-ui, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --pad: 24px;
+    --maxw: 1280px;
+    --sec: clamp(5rem, 11vw, 9rem);
+    --headh: 72px;
+    font: 400 1.0625rem/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 900px) {
+    .ag { --pad: 48px; }
+}
+
+.ag a,
+.ag a:hover { color: inherit; }
+.ag :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.ag ::selection { background: var(--white); color: var(--black); }
+.ag .light ::selection { background: var(--black); color: var(--white); }
+
+.ag .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+.ag .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+}
+
+/* each section declares its own theme */
+.ag .dark {
+    --bg: var(--black);
+    --fg: var(--white);
+    --ink2: rgba(250, 250, 250, 0.68);
+    --line: rgba(250, 250, 250, 0.16);
+    background: var(--bg);
+    color: var(--fg);
+}
+.ag .light {
+    --bg: var(--white);
+    --fg: var(--black);
+    --ink2: rgba(10, 10, 10, 0.68);
+    --line: rgba(10, 10, 10, 0.14);
+    background: var(--bg);
+    color: var(--fg);
+}
+.ag .sec { padding-top: var(--sec); padding-bottom: var(--sec); }
+.ag .sec p { color: var(--ink2); margin: 0; }
+
+.ag h1,
+.ag h2,
+.ag h3,
+.ag .h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    margin: 0;
+    text-wrap: balance;
+}
+.ag h1 { font-size: clamp(2.6rem, 7vw, 6.25rem); line-height: 1; letter-spacing: -0.04em; }
+.ag h2 { font-size: clamp(2.1rem, 4.6vw, 4rem); line-height: 1.05; letter-spacing: -0.035em; }
+.ag .h3 { font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1.15; letter-spacing: -0.025em; }
+.ag .lead { font-size: 1.25rem; line-height: 1.55; max-width: 34rem; }
+.ag .small { font-size: 0.875rem; }
+
+.ag .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 56px;
+    padding: 1.1rem 1.9rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font: 600 1rem/1 var(--sans);
+    text-decoration: none;
+    cursor: pointer;
+    background: var(--fg);
+    color: var(--bg);
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.12s;
+    -webkit-tap-highlight-color: transparent;
+}
+.ag .btn svg { width: 20px; height: 20px; flex: none; }
+.ag .btn.sm { min-height: 44px; padding: 0.7rem 1.25rem; font-size: 0.9375rem; }
+.ag .btn.sm svg { width: 18px; height: 18px; }
+.ag .btn.lg { padding: 1.4rem 2.6rem; font-size: 1.125rem; }
+.ag .btn:active { transform: scale(0.97); }
+.ag .btn:focus-visible { outline-color: var(--fg); }
+@media (hover: hover) {
+    .ag .btn:hover { background: transparent; color: var(--fg); border-color: var(--fg); }
+}
+
+/* reveal on scroll, only when JS is on */
+.js .ag .rv {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    transition-delay: calc(var(--i, 0) * 60ms);
+}
+.js .ag .rv.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .ag .rv { opacity: 1; transform: none; transition: none; }
+}
