@@ -1,0 +1,39 @@
+---
+import { faqs } from "../../data/agency.js";
+---
+
+<section class="sec light" data-theme="light" id="preguntas" aria-labelledby="h-faq">
+    <div class="wrap">
+        <h2 id="h-faq" class="rv">Preguntas frecuentes.</h2>
+        <div class="faq rv">
+            {faqs.map(([q, a]) => (
+                <details>
+                    <summary>{q}<span class="plus" aria-hidden="true"></span></summary>
+                    <p>{a}</p>
+                </details>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        min-height: 72px;
+        padding: 1.25rem 0;
+        font: 600 1.125rem/1.35 var(--sans);
+    }
+    summary::-webkit-details-marker { display: none; }
+    .plus { flex: none; width: 20px; height: 20px; position: relative; transition: transform 0.25s var(--ease); }
+    .plus::before, .plus::after { content: ""; position: absolute; background: currentColor; left: 0; top: 9px; width: 20px; height: 2px; }
+    .plus::after { transform: rotate(90deg); }
+    details[open] .plus { transform: rotate(45deg); }
+    details p { padding: 0 0 1.5rem; max-width: 40rem; }
+</style>
