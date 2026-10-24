@@ -1,0 +1,60 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+import ArrowIcon from "./ArrowIcon.astro";
+import { services, wa } from "../../data/agency.js";
+---
+
+<section class="sec dark" data-theme="dark" id="servicios" aria-labelledby="h-serv">
+    <div class="wrap">
+        <h2 id="h-serv" class="rv">Elige lo que necesitas y te escribimos.</h2>
+        <div class="rows">
+            {services.map((s, i) => (
+                <a class="row rv" style={`--i:${i}`} href={wa(s.msg)} target="_blank" rel="noopener">
+                    <span><span class="h3 name">{s.name}</span><span class="sr"> por WhatsApp</span></span>
+                    <p>{s.text}</p>
+                    <ArrowIcon class="arrow" />
+                </a>
+            ))}
+        </div>
+        <div class="after rv"><WhatsAppButton size="lg" /></div>
+    </div>
+</section>
+
+<style>
+    h2 { max-width: 12em; }
+    .rows { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--line); }
+    .row {
+        display: grid;
+        grid-template-areas: "n a" "p a";
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem var(--pad);
+        margin: 0 calc(var(--pad) * -1);
+        border-bottom: 1px solid var(--line);
+        text-decoration: none;
+        color: var(--fg);
+        transition: background-color 0.2s, color 0.2s;
+    }
+    .row > span { grid-area: n; }
+    .row > p { grid-area: p; max-width: 34rem; transition: color 0.2s; }
+    .row :global(.arrow) { grid-area: a; width: 36px; height: 36px; transition: transform 0.2s var(--ease); }
+    .name { display: block; margin-bottom: 0.5rem; }
+    .row:focus-visible { outline-offset: -3px; }
+    .after { margin-top: clamp(2.5rem, 5vw, 4rem); }
+    @media (min-width: 900px) {
+        .row {
+            grid-template-areas: "n p a";
+            grid-template-columns: 5fr 6fr 1fr;
+            padding-top: 2.25rem;
+            padding-bottom: 2.25rem;
+        }
+        .name { margin: 0; }
+        .row :global(.arrow) { justify-self: end; }
+    }
+    @media (hover: hover) {
+        .row:hover { background: var(--fg); color: var(--bg); }
+        .row:hover p { color: var(--bg); }
+        .row:hover :global(.arrow) { transform: translateX(6px); }
+    }
+</style>
