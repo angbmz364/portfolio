@@ -1,0 +1,29 @@
+---
+const { eyebrow, h1, lead, hero } = Astro.props;
+---
+
+<section class="chero dark" data-theme="dark" aria-labelledby="h-case">
+    <div class="wrap">
+        <span class="eyebrow rv">{eyebrow}</span>
+        <h1 id="h-case" class="rv" style="--i:1">{h1}</h1>
+        <p class="lead rv" style="--i:2">{lead}</p>
+        <figure class="hero-img rv">
+            <img src={hero.src} alt={hero.alt} width={hero.w} height={hero.h} style={`object-position:${hero.pos}`} />
+        </figure>
+    </div>
+</section>
+
+<style>
+    .chero { padding-top: calc(var(--headh) + clamp(2rem, 6vh, 4rem)); padding-bottom: var(--sec); }
+    h1 { max-width: 12em; font-size: clamp(2.6rem, 6.4vw, 6rem); margin-bottom: 1.75rem; }
+    .eyebrow { margin-top: clamp(1.5rem, 4vh, 3rem); }
+    .hero-img { margin: clamp(3rem, 6vw, 5rem) 0 0; }
+    .hero-img img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        border: 1px solid var(--line);
+    }
+    @media (min-width: 900px) { .hero-img img { aspect-ratio: 16 / 9; } }
+</style>
