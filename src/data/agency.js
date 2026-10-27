@@ -21,32 +21,41 @@ export const commitments = [
     ["Por escrito", "Alcance, precio y plazo acordados antes de empezar."],
 ];
 
-export const services = [
+export const webServices = [
     {
-        name: "Páginas web",
-        text: "Rápidas, claras y pensadas para que te escriban por WhatsApp. Se ven bien en el celular, que es donde te buscan.",
-        msg: "Hola SaskDev, quiero una página web para mi negocio.",
+        name: "Página de aterrizaje",
+        text: "Una sola página con un solo objetivo: que te escriban o te compren.",
+        msg: "Hola SaskDev, quiero una landing page para mi negocio.",
     },
     {
-        name: "Tiendas online",
+        name: "Web corporativa",
+        text: "Quién eres, qué ofreces y cómo contactarte, con la presencia que tu marca merece.",
+        msg: "Hola SaskDev, quiero una web corporativa para mi empresa.",
+    },
+    {
+        name: "Tienda online",
         text: "Catálogo, carrito y cobros con Yape, Plin o tarjeta. Tú administras tus productos sin depender de nadie.",
         msg: "Hola SaskDev, quiero una tienda online para mi negocio.",
     },
     {
-        name: "Software y apps a medida",
-        text: "Reservas, inventario, ventas o gestión interna, hechos para cómo trabaja tu empresa.",
-        msg: "Hola SaskDev, necesito un software o app a medida.",
+        name: "Rediseño web",
+        text: "Tu web actual está lenta o desactualizada. La rediseñamos sin perder lo que ya te posiciona.",
+        msg: "Hola SaskDev, quiero rediseñar mi página web.",
     },
     {
-        name: "IA y automatización",
-        text: "Asistentes y respuestas automáticas que le ahorran horas a tu equipo.",
-        msg: "Hola SaskDev, quiero automatizar procesos con IA en mi negocio.",
-    },
-    {
-        name: "Mantenimiento y soporte",
+        name: "Mantenimiento",
         text: "Cambios, actualizaciones, seguridad y respaldos para que todo siga funcionando mes a mes.",
-        msg: "Hola SaskDev, necesito mantenimiento para mi web o sistema.",
+        msg: "Hola SaskDev, necesito mantenimiento para mi web.",
     },
+];
+
+export const SEO_MSG = "Hola SaskDev, quiero mejorar el posicionamiento SEO de mi web.";
+
+export const seoItems = [
+    ["SEO técnico", "Velocidad, estructura y datos que Google necesita para entender tu web."],
+    ["Contenido", "Títulos, descripciones y textos pensados para las búsquedas de tus clientes."],
+    ["Búsqueda local", "Perfil de Google Business y páginas por ciudad si atiendes fuera de Lima."],
+    ["Medición", "Google Search Console y Google Analytics instalados desde el día uno."],
 ];
 
 export const works = [

@@ -1,0 +1,68 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+import ArrowIcon from "./ArrowIcon.astro";
+import { wa, webServices } from "../../data/agency.js";
+---
+
+<section class="sec light" data-theme="light" id="diseno-web" aria-labelledby="h-web">
+    <div class="wrap">
+        <span class="eyebrow rv">Diseño web</span>
+        <h2 id="h-web" class="rv statement" style="--i:1">La página web que tu negocio necesita, no una plantilla más.</h2>
+        <p class="lead rv after" style="--i:2">
+            No todos los negocios necesitan lo mismo. Te recomendamos la opción que resuelve tu caso y te explicamos por qué.
+        </p>
+        <div class="rows">
+            {webServices.map(({ name, text, msg }, i) => (
+                <a class="row rv" style={`--i:${i}`} href={wa(msg)} target="_blank" rel="noopener">
+                    <span><span class="h3 name">{name}</span><span class="sr"> por WhatsApp</span></span>
+                    <p>{text}</p>
+                    <ArrowIcon class="arrow" />
+                </a>
+            ))}
+        </div>
+        <p class="note rv">Todas nuestras webs se ven bien en el celular, que es donde te buscan.</p>
+        <div class="after-rows rv"><WhatsAppButton size="lg" /></div>
+    </div>
+</section>
+
+<style>
+    .rows { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--line); }
+    .row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "n a" "p a";
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem var(--pad);
+        margin: 0 calc(var(--pad) * -1);
+        border-bottom: 1px solid var(--line);
+        text-decoration: none;
+        color: var(--fg);
+        transition: background-color 0.2s, color 0.2s;
+    }
+    .row > span { grid-area: n; }
+    .row > p { grid-area: p; max-width: 34rem; transition: color 0.2s; }
+    .row > :global(.arrow) { grid-area: a; width: 36px; height: 36px; }
+    .name { display: block; margin-bottom: 0.5rem; }
+    .row:focus-visible { outline-offset: -3px; }
+    @media (min-width: 900px) {
+        .row {
+            grid-template-areas: "n p a";
+            grid-template-columns: 5fr 6fr 1fr;
+            padding-top: 2.25rem;
+            padding-bottom: 2.25rem;
+        }
+        .name { margin: 0; }
+        .row > :global(.arrow) { justify-self: end; }
+    }
+    @media (hover: hover) {
+        .row:hover { background: var(--fg); color: var(--bg); }
+        .row:hover p { color: var(--bg); }
+        .row:hover :global(.arrow) { transform: translateX(6px); }
+    }
+    .note { margin-top: 2rem; }
+    .after-rows { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+    @media (prefers-reduced-motion: reduce) {
+        .row :global(.arrow) { transition: none; }
+    }
+</style>
