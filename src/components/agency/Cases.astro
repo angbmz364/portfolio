@@ -1,0 +1,49 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+import ArrowIcon from "./ArrowIcon.astro";
+import { cases, CASES_MSG } from "../../data/agency.js";
+---
+
+<section class="sec light" data-theme="light" id="casos" aria-labelledby="h-casos">
+    <div class="wrap">
+        <span class="eyebrow rv">Casos de éxito</span>
+        <h2 id="h-casos" class="rv" style="--i:1">Así quedaría tu web.</h2>
+        <p class="lead rv after" style="--i:2">
+            Tres proyectos que te mostramos completos: un hotel, una agencia de turismo y un proyecto propio con
+            inteligencia artificial.
+        </p>
+        <div class="cases">
+            {cases.map((c, i) => (
+                <a class="case rv" style={`--i:${i}`} href={`/agency/casos/${c.slug}`}>
+                    <div class="shot">
+                        <img src={c.img} alt={c.alt} width="1200" height="800" loading="lazy" style={`object-position:${c.pos}`} />
+                    </div>
+                    <span class="cat">{c.cat}</span>
+                    <span class="t"><span class="h3">{c.name}</span><ArrowIcon class="arrow" /></span>
+                    <p>{c.teaser}</p>
+                </a>
+            ))}
+        </div>
+        <div class="cta rv"><WhatsAppButton size="lg" msg={CASES_MSG} label="Quiero una web así" icon={false} /></div>
+    </div>
+</section>
+
+<style>
+    .cases { display: grid; gap: 3.5rem; margin-top: clamp(2.5rem, 5vw, 4rem); }
+    @media (min-width: 900px) { .cases { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+    .case { display: block; text-decoration: none; color: var(--fg); }
+    .shot { aspect-ratio: 3 / 2; overflow: hidden; border: 1px solid var(--line); background: var(--line); }
+    .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease); }
+    .cat { display: block; margin-top: 1.25rem; font-weight: 500; font-size: 0.9375rem; color: var(--ink2); }
+    .t { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.35rem; }
+    .case :global(.arrow) { width: 32px; height: 32px; }
+    .case p { margin-top: 0.5rem; max-width: 26rem; }
+    .cta { margin-top: clamp(3rem, 6vw, 5rem); }
+    @media (hover: hover) {
+        .case:hover .shot img { transform: scale(1.02); }
+        .case:hover :global(.arrow) { transform: translateX(6px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .shot img, .case :global(.arrow) { transition: none; }
+    }
+</style>

@@ -58,23 +58,37 @@ export const seoItems = [
     ["Medición", "Google Search Console y Google Analytics instalados desde el día uno."],
 ];
 
-export const works = [
-    { name: "Hotel El Turco", text: "Hotel con piscina en San Ramón, Chanchamayo.", img: "/agency/hotel-el-turco.webp" },
-    { name: "Gran Hotel Virrey", text: "Hotel en San Ramón, Chanchamayo.", img: "/agency/gran-hotel-virrey.webp" },
-    { name: "Geko Lodge", text: "Hotel con piscina en Chanchamayo, Junín.", img: "/agency/geko-lodge.webp" },
-    { name: "Monarca Lodge", text: "Hotel en San Ramón, Chanchamayo.", img: "/agency/monarca-lodge.webp" },
-    { name: "Chullos Travel Perú", text: "Tours claros y cada botón lleva directo a WhatsApp.", img: "/agency/chullos-travel-peru.webp" },
-    { name: "Tours Cusco Machu Picchu", text: "De un enlace en Beacons a una web propia con rutas y cotización inmediata.", img: "/agency/tours-cusco-machu-picchu.webp" },
-    { name: "Viajes Cusco Perú", text: "Precios, horarios y contacto visibles desde la primera pantalla.", img: "/agency/viajes-cusco-peru.webp" },
+export const cases = [
+    {
+        slug: "hospedaje",
+        cat: "Hospedaje",
+        name: "Gran Hotel Virrey",
+        teaser: "Un hotel que se reserva solo, desde el celular.",
+        img: "/agency/gran-hotel-virrey.webp",
+        alt: "Web de Gran Hotel Virrey",
+        pos: "top",
+    },
+    {
+        slug: "turismo",
+        cat: "Turismo",
+        name: "Chullos Travel Perú",
+        teaser: "Tours que se entienden en un minuto y se reservan en uno.",
+        img: "/agency/chullos-travel-peru.webp",
+        alt: "Web de Chullos Travel Perú",
+        pos: "top",
+    },
+    {
+        slug: "centinela",
+        cat: "Proyecto propio",
+        name: "Centinela",
+        teaser: "Detectamos la mosca de la fruta en el campo, sin depender de internet.",
+        img: "/agency/centinela-trampa-hero.webp",
+        alt: "Trampa de monitoreo de mosca de la fruta colgada de un árbol de cítricos",
+        pos: "50% 56%",
+    },
 ];
 
-export const WORK_MSG = "Hola SaskDev, vi sus trabajos y quiero una web así para mi negocio.";
-
-export const software = [
-    { name: "WayPeru", text: "App móvil que traza la ruta más segura por todo el Perú.", href: "https://github.com/angbmz364/wayperu" },
-    { name: "Centinela", text: "Machine learning que detecta la mosca de la fruta y avisa al agricultor.", href: "https://github.com/angbmz364/centinela" },
-    { name: "Nova", text: "Asistente educativo sin conexión para estudiantes rurales.", href: "https://github.com/angbmz364/nova-android" },
-];
+export const CASES_MSG = "Hola SaskDev, vi sus casos y quiero una web así para mi negocio.";
 
 export const method = [
     ["Entendemos tu negocio", "Nos cuentas qué vendes, a quién y por qué te escogen hoy."],
