@@ -1,0 +1,33 @@
+---
+import CaseImages from "./CaseImages.astro";
+
+const { pull, title, lead, images, cols, ar } = Astro.props;
+---
+
+<section class="sec dark" data-theme="dark" aria-labelledby="h-vis">
+    <div class="wrap">
+        {pull && <p class="pull rv">{pull}</p>}
+        <div class:list={{ after: pull }}>
+            <h2 id="h-vis" class="rv statement">{title}</h2>
+            <div class="vis">
+                <p class="lead rv">{lead}</p>
+                <CaseImages {images} {cols} {ar} />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .pull {
+        color: var(--fg);
+        font-size: clamp(2.25rem, 4.8vw, 4.25rem);
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        font-weight: 600;
+        max-width: 16em;
+        margin: 0;
+    }
+    .after { margin-top: clamp(4rem, 8vw, 7rem); }
+    .vis { display: grid; gap: 2rem; margin-top: clamp(2.5rem, 5vw, 4rem); }
+    .vis :global(.gal) { margin-top: 0; }
+</style>
