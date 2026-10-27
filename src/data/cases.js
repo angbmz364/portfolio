@@ -1,0 +1,122 @@
+const NB = " ";
+
+// Only verified material lives here. Metrics and quotes for the two client
+// cases are left out until the real Search Console / GA4 numbers arrive.
+export const caseStudies = {
+    hospedaje: {
+        title: "Gran Hotel Virrey, hospedaje en Chanchamayo | SaskDev",
+        description: "Rediseño web del Gran Hotel Virrey: cada habitación, tarifa y botón de reserva llega directo a WhatsApp.",
+        eyebrow: "Hospedaje en Chanchamayo",
+        h1: "Un hotel que se reserva solo, desde el celular.",
+        lead: "Rediseñamos la web del Gran Hotel Virrey para que cada habitación, tarifa y botón de reserva llegue directo a WhatsApp, en menos de tres toques.",
+        hero: { src: "/agency/gran-hotel-virrey.webp", alt: "Web del Gran Hotel Virrey, página de inicio", w: 1200, h: 750, pos: "top" },
+        context: "Un hotel con piscina y vista a la selva vende con fotos y con confianza. La web tenía fotos buenas, pero las habitaciones, las tarifas y el contacto estaban enterrados.",
+        facts: [["Servicios", "Diseño web, arquitectura de contenidos, botones de reserva a WhatsApp, SEO técnico, analítica web."]],
+        story: [
+            ["El reto", "Un visitante que llega desde Google quiere tres respuestas en la primera pantalla: cuánto cuesta una noche, qué incluye y cómo reservar. La web no las daba con claridad, y muchas visitas se iban sin escribir."],
+            ["La solución", "Ordenamos la página por decisiones: primero la habitación y el precio, después la experiencia, al final la reserva. Cada habitación tiene su botón con un mensaje ya escrito para WhatsApp. El SEO técnico y la analítica quedaron instalados para medir desde el primer día."],
+        ],
+        visual: {
+            title: "El huésped decide con fotos. La web las ordena.",
+            lead: "Fondo oscuro para las fotos de habitaciones, blanco para las tarifas, una sola acción en cada pantalla.",
+            images: [{ src: "/agency/gran-hotel-virrey.webp", alt: "Detalle de la web del Gran Hotel Virrey con las habitaciones y el botón de reserva", w: 1200, h: 750, pos: "50% 100%" }],
+            cols: 1,
+            ar: "16/9",
+        },
+        next: "turismo",
+        closing: {
+            title: "¿Tienes un hotel y quieres una web así?",
+            msg: "Hola SaskDev, vi el caso del hotel y quiero una web así para mi hospedaje.",
+        },
+    },
+    turismo: {
+        title: "Chullos Travel Perú, turismo en Cusco | SaskDev",
+        description: "Rediseño web de Chullos Travel Perú: cada tour con precio, duración y un botón directo a WhatsApp.",
+        eyebrow: "Agencia de turismo en Cusco",
+        h1: "Tours que se entienden en un minuto y se reservan en uno.",
+        lead: "Rediseñamos la web de Chullos Travel Perú para que cada tour tenga precio, duración y un botón directo a WhatsApp. Sin buscar, sin formularios.",
+        hero: { src: "/agency/chullos-travel-peru.webp", alt: "Web de Chullos Travel Perú, página de inicio", w: 1200, h: 750, pos: "top" },
+        context: "Una agencia que vende viajes compite con portales y redes. La web tenía que ser lo primero que el viajero ve al buscar Machu Picchu y lo último que necesita antes de pagar.",
+        facts: [["Servicios", "Diseño web, arquitectura de rutas, botones a WhatsApp, SEO técnico, analítica web."]],
+        story: [
+            ["El reto", "Un viajero compara cinco agencias en una tarde. Si no ve precio, duración e incluye en la primera pantalla, pasa a la siguiente."],
+            ["La solución", "Cada tour es una tarjeta con precio desde, duración, qué incluye y el botón de cotización con el nombre del tour ya escrito. La página de inicio resume los destinos y lleva a cada ruta en un toque. SEO técnico y analítica instalados desde el inicio."],
+        ],
+        visual: {
+            title: "Un destino se vende con una imagen y un precio.",
+            lead: "Fotos grandes de cada ruta, precio en la misma línea que el nombre, un solo color de acción.",
+            images: [{ src: "/agency/chullos-travel-peru.webp", alt: "Detalle de la web de Chullos Travel Perú con las rutas y el botón de cotización", w: 1200, h: 750, pos: "50% 100%" }],
+            cols: 1,
+            ar: "16/9",
+        },
+        next: "centinela",
+        closing: {
+            title: "¿Vendes viajes y quieres una web que venda por ti?",
+            msg: "Hola SaskDev, vi el caso de la agencia de turismo y quiero una web así para mi negocio.",
+        },
+    },
+    centinela: {
+        title: "Centinela, detección de mosca de la fruta | SaskDev",
+        description: "Centinela es un prototipo de visión por computadora que detecta la mosca sudamericana de la fruta en el campo, sin internet.",
+        eyebrow: "Proyecto propio, visión por computadora",
+        h1: "Detectamos la mosca de la fruta en el campo, sin depender de internet.",
+        lead: "Centinela es una estación de monitoreo para cultivos de cítricos. Una cámara revisa las trampas, un modelo de inteligencia artificial identifica la mosca sudamericana de la fruta y avisa al agricultor antes de que el daño crezca.",
+        hero: { src: "/agency/centinela-trampa-hero.webp", alt: "Trampa de monitoreo de mosca de la fruta colgada de un árbol de cítricos de noche", w: 1204, h: 1599, pos: "50% 55%" },
+        stats: {
+            items: [
+                [`99,01${NB}%`, "exactitud en el conjunto de prueba"],
+                [`98,8${NB}%`, "moscas objetivo detectadas (sensibilidad)"],
+                ["4.041", "imágenes para entrenar y probar"],
+                ["0,9976", "ROC AUC en la prueba"],
+            ],
+            note: "Resultados medidos sobre 608 imágenes de prueba que el modelo no vio al entrenar.",
+        },
+        context: `La mosca sudamericana de la fruta (Anastrepha fraterculus) causa pérdidas de entre 15${NB}% y 30${NB}% de la producción anual en el Perú. En cítricos, la infestación puede llegar al 45${NB}%.`,
+        values: [
+            ["Funciona en el campo", "La inferencia corre en la estación. No necesita internet ni una nube."],
+            ["Preciso en pruebas", `99,01${NB}% de exactitud. De 333 moscas objetivo, el modelo acertó en 329.`],
+            ["Hardware económico", "Corre en una Raspberry Pi 4 con cámara, pensado para costar lo menos posible."],
+            ["Avisa a tiempo", `Cuando la confianza supera el 75${NB}%, envía una alerta para que el agricultor actúe.`],
+        ],
+        facts: [
+            ["Servicios", "Visión por computadora, Edge AI, alertas automáticas, diseño de la estación de monitoreo."],
+            ["Tecnologías", "Python, PyTorch, MobileNetV3-small, OpenCV, scikit-learn, Raspberry Pi 4."],
+        ],
+        story: [
+            ["El reto", "Revisar trampas a mano es lento, y una alerta tardía significa fruta perdida. Además, la mosca objetivo se parece a otros insectos. El modelo necesitaba distinguirla con fotos reales, de baja calidad y de muchas fuentes distintas."],
+            ["La solución", "Entrenamos MobileNetV3-small con transfer learning. El backbone quedó congelado y solo se entrenó el clasificador. Los datos combinan el dataset Dryad, IP102 y fotos de campo con licencia Creative Commons. El modelo final se entrena una sola vez y se exporta para correr localmente."],
+            ["El resultado", `El modelo final alcanzó 99,01${NB}% de exactitud y una sensibilidad de 98,8${NB}% sobre la mosca objetivo. Tiene 4 falsos negativos de 333 moscas en la prueba y 2 falsos positivos sobre 275 imágenes de otros insectos. El proyecto sigue en prototipo: falta validarlo en parcelas reales durante una temporada completa.`],
+        ],
+        gallery: {
+            cols: 3,
+            ar: "3/4",
+            images: [
+                { src: "/agency/centinela-trampa-detalle.webp", alt: "Trampa amarilla con cebo dentro de un árbol de cítricos", w: 1200, h: 1600 },
+                { src: "/agency/centinela-trampa-huerto.webp", alt: "Trampa colgada en un huerto de cítricos", w: 1200, h: 1600 },
+                { src: "/agency/centinela-moscas-tablero.webp", alt: "Moscas capturadas sobre el tablero adhesivo de una trampa", w: 966, h: 1024 },
+            ],
+        },
+        visual: {
+            pull: "Cada trampa es un sensor. El modelo solo cuenta lo que la trampa ve.",
+            title: "Lo que ve la trampa, lo que ve el modelo.",
+            lead: "Una estación sencilla, pensada para el huerto: trampa, cámara y una caja de inferencia. Sin pantallas en el campo, solo una alerta cuando hace falta.",
+            images: [
+                { src: "/agency/centinela-trampa-cerca.webp", alt: "Trampa de monitoreo vista de cerca, con el cebo sobre el tablero adhesivo", w: 900, h: 1600 },
+                { src: "/agency/centinela-trampa-colgada.webp", alt: "Trampa de monitoreo colgada de una rama en un huerto de cítricos", w: 768, h: 1024 },
+            ],
+            cols: 2,
+            ar: "4/5",
+        },
+        next: "hospedaje",
+        closing: {
+            title: "¿Tienes un cultivo que quieras monitorear?",
+            msg: "Hola SaskDev, vi el caso de Centinela y quiero conversar sobre monitoreo en mi cultivo.",
+        },
+    },
+};
+
+export const nextLabel = {
+    hospedaje: "Hospedaje: Gran Hotel Virrey",
+    turismo: "Turismo: Chullos Travel Perú",
+    centinela: "Proyecto propio: Centinela",
+};
