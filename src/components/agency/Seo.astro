@@ -1,0 +1,35 @@
+---
+import WhatsAppButton from "./WhatsAppButton.astro";
+import { seoItems, SEO_MSG } from "../../data/agency.js";
+---
+
+<section class="sec dark" data-theme="dark" id="seo" aria-labelledby="h-seo">
+    <div class="wrap">
+        <span class="eyebrow rv">Posicionamiento SEO</span>
+        <h2 id="h-seo" class="rv statement" style="--i:1">Una gran web no debería quedarse escondida en Google.</h2>
+        <p class="lead rv after" style="--i:2">
+            El diseño atrae la mirada. El SEO hace que te encuentren cuando alguien busca lo que vendes en Perú.
+        </p>
+        <div class="grid">
+            {seoItems.map(([title, text], i) => (
+                <div class="rv" style={`--i:${Math.floor(i / 2)}`}>
+                    <div class="h3">{title}</div>
+                    <p>{text}</p>
+                </div>
+            ))}
+        </div>
+        <div class="cta rv"><WhatsAppButton size="lg" msg={SEO_MSG} label="Quiero aparecer en Google" /></div>
+    </div>
+</section>
+
+<style>
+    .grid { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--line); }
+    .grid > div { padding: 2rem 0; border-bottom: 1px solid var(--line); }
+    .grid .h3 { margin-bottom: 0.6rem; }
+    .grid p { max-width: 30rem; }
+    .cta { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+    @media (min-width: 900px) {
+        .grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4rem; }
+        .grid > div { padding: 2.5rem 0; }
+    }
+</style>
