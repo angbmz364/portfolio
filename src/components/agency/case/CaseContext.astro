@@ -1,0 +1,39 @@
+---
+const { context, values = [], facts = [] } = Astro.props;
+---
+
+<section class="sec light" data-theme="light" aria-labelledby="h-ctx">
+    <div class="wrap">
+        <h2 id="h-ctx" class="rv statement">{context}</h2>
+        {values.length > 0 && (
+            <div class="values">
+                {values.map(([title, text], i) => (
+                    <div class="rv" style={`--i:${Math.floor(i / 2)}`}>
+                        <div class="h3">{title}</div>
+                        <p>{text}</p>
+                    </div>
+                ))}
+            </div>
+        )}
+        <dl class="facts">
+            {facts.map(([term, text]) => (
+                <div class="rv"><dt>{term}</dt><dd>{text}</dd></div>
+            ))}
+        </dl>
+    </div>
+</section>
+
+<style>
+    .values { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--line); }
+    .values > div { padding: 2rem 0; border-bottom: 1px solid var(--line); }
+    .values .h3 { margin-bottom: 0.6rem; }
+    .facts { margin: clamp(2.5rem, 5vw, 4rem) 0 0; border-top: 1px solid var(--line); }
+    .facts > div { display: grid; gap: 0.4rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+    dt { font-weight: 600; }
+    dd { margin: 0; color: var(--ink2); }
+    @media (min-width: 900px) {
+        .values { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4rem; }
+        .values > div { padding: 2.5rem 0; }
+        .facts > div { grid-template-columns: 5fr 7fr; gap: 3rem; }
+    }
+</style>
