@@ -4,6 +4,12 @@ export const EMAIL = "saskdev@gmail.com";
 export const X_URL = "https://x.com/angbmz";
 export const INSTAGRAM_URL = "https://www.instagram.com/angbmz364/";
 
+export const nav = [
+    ["Diseño web", "diseno-web"],
+    ["SEO", "seo"],
+    ["Casos", "casos"],
+];
+
 export const wa = (text) => `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
 export const QUOTE_MSG = "Hola SaskDev, quiero cotizar un proyecto.";
