@@ -44,12 +44,17 @@ import WhatsAppButton from "./WhatsAppButton.astro";
     let inClosing = false;
     const update = () => bar.classList.toggle("show", pastHero && !inClosing);
 
-    if ("IntersectionObserver" in window && heroCta && closing) {
+    if (!heroCta) {
+        // case pages have no hero CTA, so key off scroll depth
+        addEventListener("scroll", () => { pastHero = scrollY > 480; update(); }, { passive: true });
+    } else if ("IntersectionObserver" in window) {
         new IntersectionObserver((entries) => {
             const e = entries[0];
             pastHero = !e.isIntersecting && e.boundingClientRect.top < 0;
             update();
         }).observe(heroCta);
+    }
+    if (closing && "IntersectionObserver" in window) {
         new IntersectionObserver((entries) => {
             inClosing = entries[0].isIntersecting;
             update();
