@@ -1,0 +1,30 @@
+<section class="sec dark" data-theme="dark" id="equipo" aria-labelledby="h-eq">
+    <div class="wrap who">
+        <div class="founder rv">
+            <img src="/saskdev.webp" alt="Angel Bernal, fundador de SaskDev" width="1440" height="1440" loading="lazy" />
+            <div class="cap">Angel Bernal, fundador</div>
+        </div>
+        <div>
+            <span class="eyebrow rv">Equipo</span>
+            <h2 id="h-eq" class="rv" style="--i:1">Hablas directo con quien programa tu proyecto.</h2>
+            <p class="lead rv after" style="--i:2">
+                SaskDev lo dirige Angel Bernal, ingeniero de software peruano con más de 2 años construyendo sitios web.
+                Sin intermediarios ni gerentes de cuenta: lo que acuerdas es lo que se construye.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .who { display: grid; gap: 3rem; align-items: center; }
+    @media (min-width: 900px) { .who { grid-template-columns: 5fr 7fr; gap: 5rem; } }
+    .founder img {
+        width: 100%;
+        height: auto;
+        max-width: 420px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        filter: grayscale(1) contrast(1.05);
+    }
+    .cap { margin-top: 0.9rem; font-weight: 600; color: var(--fg); }
+</style>

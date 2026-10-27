@@ -97,17 +97,14 @@ export const method = [
     ["Publicamos y medimos", "Lanzamos tu web, la conectamos con Google y te enseñamos a usarla."],
 ];
 
-export const steps = [
-    ["Hablamos", "Nos cuentas tu negocio por WhatsApp o en una llamada corta."],
-    ["Propuesta", "Recibes alcance, precio y plazo por escrito en menos de 24 horas."],
-    ["Construimos", "Ves avances reales y ajustas lo que haga falta."],
-    ["Lanzamos", "Publicamos, te enseñamos a usarlo y seguimos disponibles."],
-];
-
 export const faqs = [
-    ["¿Cuánto cuesta?", "Depende del alcance: una web simple y un sistema a medida son proyectos muy distintos. Escríbenos y te enviamos una cotización gratis en menos de 24 horas."],
+    ["¿Cuánto cuesta?", "Depende del alcance: una landing page y una tienda online son proyectos muy distintos. Escríbenos y te enviamos una cotización gratis en menos de 24 horas."],
     ["¿Cuánto demora?", "Lo definimos por escrito en la propuesta. Antes de empezar sabes exactamente cuándo se entrega."],
     ["¿El dominio y la web son míos?", "Sí. Dominio, hosting, código y cuentas se registran a tu nombre. Si un día quieres trabajar con otro equipo, te lo entregamos todo."],
-    ["¿Puedo cobrar con Yape, Plin o tarjeta?", "Sí. Integramos pasarelas de pago locales en tu tienda o sistema."],
+    ["¿Puedo cobrar con Yape, Plin o tarjeta?", "Sí. Integramos pasarelas de pago locales en tu tienda online."],
+    ["¿Las webs se ven bien en el celular?", "Sí. Todas son responsive y las revisamos en celular antes de publicar."],
+    ["¿Podré administrar mi web después de publicarla?", "Sí. Te enseñamos a actualizar textos, productos e imágenes. Si prefieres, el mantenimiento lo hacemos nosotros."],
+    ["¿El diseño incluye SEO?", "La estructura base sí: velocidad, títulos y Google Search Console. El posicionamiento completo es un servicio aparte que te cotizamos."],
+    ["¿Se puede rediseñar una web sin perder el posicionamiento?", "Sí. Conservamos las direcciones que ya tienen visitas, configuramos redirecciones y revisamos el contenido antes de publicar."],
     ["¿Trabajan con negocios fuera de Lima?", "Sí. Todo el proceso es remoto, por WhatsApp, llamada o videollamada, para cualquier ciudad del Perú."],
 ];
