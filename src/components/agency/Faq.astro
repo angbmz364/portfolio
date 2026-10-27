@@ -4,7 +4,8 @@ import { faqs } from "../../data/agency.js";
 
 <section class="sec light" data-theme="light" id="preguntas" aria-labelledby="h-faq">
     <div class="wrap">
-        <h2 id="h-faq" class="rv">Preguntas frecuentes.</h2>
+        <span class="eyebrow rv">Antes de decidir</span>
+        <h2 id="h-faq" class="rv" style="--i:1">Preguntas frecuentes.</h2>
         <div class="faq rv">
             {faqs.map(([q, a]) => (
                 <details>
@@ -28,12 +29,12 @@ import { faqs } from "../../data/agency.js";
         gap: 1.5rem;
         min-height: 72px;
         padding: 1.25rem 0;
-        font: 600 1.125rem/1.35 var(--sans);
+        font: 600 clamp(1.125rem, 1.6vw, 1.375rem) / 1.35 var(--sans);
     }
     summary::-webkit-details-marker { display: none; }
     .plus { flex: none; width: 20px; height: 20px; position: relative; transition: transform 0.25s var(--ease); }
     .plus::before, .plus::after { content: ""; position: absolute; background: currentColor; left: 0; top: 9px; width: 20px; height: 2px; }
     .plus::after { transform: rotate(90deg); }
     details[open] .plus { transform: rotate(45deg); }
-    details p { padding: 0 0 1.5rem; max-width: 40rem; }
+    details p { padding: 0 0 1.75rem; max-width: 42rem; }
 </style>
