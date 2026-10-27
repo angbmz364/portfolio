@@ -5,12 +5,13 @@ import { commitments } from "../../data/agency.js";
 
 <section class="hero dark" data-theme="dark" aria-labelledby="h-hero">
     <div class="wrap main">
-        <h1 id="h-hero" class="rv">Tu negocio, vendiendo en internet las 24 horas.</h1>
-        <p class="lead rv" style="--i:1">
-            Creamos tu página web, tienda online, software o automatización con IA. Tú nos cuentas qué necesitas.
-            Nosotros lo construimos y lo ponemos en línea.
+        <span class="eyebrow rv">Diseño web y SEO en Perú</span>
+        <h1 id="h-hero" class="rv" style="--i:1">Tu negocio, vendiendo en internet las 24 horas.</h1>
+        <p class="lead rv" style="--i:2">
+            Creamos la página web de tu negocio, la hacemos aparecer en Google y te acompañamos después de publicarla.
+            Tú nos cuentas qué necesitas. Nosotros lo construimos.
         </p>
-        <div class="cta-row rv" style="--i:2">
+        <div class="cta-row rv" style="--i:3">
             <WhatsAppButton id="hero-cta" size="lg" />
             <span class="small">Respuesta en menos de 24 horas. Sin compromiso.</span>
         </div>
@@ -42,6 +43,7 @@ import { commitments } from "../../data/agency.js";
     }
     .full { width: 100%; }
     h1 { max-width: 10.5em; }
+    .eyebrow { margin: 0; }
     .cta-row { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; }
     .cta-row .small { color: var(--ink2); }
     .lead { color: var(--ink2); margin: 0; }
@@ -56,7 +58,7 @@ import { commitments } from "../../data/agency.js";
         .commit div + div { padding-left: 2rem; border-left: 1px solid var(--line); }
     }
     @media (min-width: 900px) and (max-height: 820px) {
-        h1 { font-size: clamp(2.6rem, min(7vw, 11vh), 6.25rem); }
+        h1 { font-size: clamp(2.9rem, min(8vw, 12vh), 7.5rem); }
         .lead { font-size: 1.125rem; }
     }
 </style>
