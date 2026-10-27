@@ -1,0 +1,24 @@
+---
+const { story } = Astro.props;
+---
+
+<section class="sec dark" data-theme="dark" aria-label="Reto, solución y resultado">
+    <div class="wrap">
+        <span class="eyebrow rv">El proyecto</span>
+        <div class="nar">
+            {story.map(([title, text]) => (
+                <div class="block rv">
+                    <h2 class="h3">{title}</h2>
+                    <p>{text}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .nar { margin-top: clamp(2.5rem, 5vw, 4rem); }
+    .block { display: grid; gap: 1.25rem; padding: clamp(2rem, 4vw, 3rem) 0; border-top: 1px solid var(--line); }
+    .block p { max-width: 36rem; font-size: clamp(1.1875rem, 1.8vw, 1.375rem); line-height: 1.5; }
+    @media (min-width: 900px) { .block { grid-template-columns: 5fr 7fr; gap: 3rem; } }
+</style>
