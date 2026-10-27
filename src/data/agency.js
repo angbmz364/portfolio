@@ -67,6 +67,13 @@ export const software = [
     { name: "Nova", text: "Asistente educativo sin conexión para estudiantes rurales.", href: "https://github.com/angbmz364/nova-android" },
 ];
 
+export const method = [
+    ["Entendemos tu negocio", "Nos cuentas qué vendes, a quién y por qué te escogen hoy."],
+    ["Estudiamos a tu competencia", "Revisamos cómo se presentan, qué ofrecen y qué les falta."],
+    ["Diseñamos y construimos", "Ves avances reales y ajustas lo que haga falta antes de publicar."],
+    ["Publicamos y medimos", "Lanzamos tu web, la conectamos con Google y te enseñamos a usarla."],
+];
+
 export const steps = [
     ["Hablamos", "Nos cuentas tu negocio por WhatsApp o en una llamada corta."],
     ["Propuesta", "Recibes alcance, precio y plazo por escrito en menos de 24 horas."],
