@@ -1,0 +1,11 @@
+---
+import CaseImages from "./CaseImages.astro";
+
+const { gallery } = Astro.props;
+---
+
+<section class="sec light" data-theme="light" aria-label="Galería">
+    <div class="wrap">
+        <CaseImages {...gallery} />
+    </div>
+</section>

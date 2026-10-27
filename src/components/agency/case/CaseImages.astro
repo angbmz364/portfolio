@@ -1,0 +1,15 @@
+---
+const { images, cols = 2, ar = "3/2" } = Astro.props;
+---
+
+<div class="gal" style={`--cols:${cols};--ar:${ar}`}>
+    {images.map((img) => (
+        <img class="rv" src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" style={`object-position:${img.pos ?? "50% 50%"}`} />
+    ))}
+</div>
+
+<style>
+    .gal { display: grid; gap: 16px; margin-top: clamp(2.5rem, 5vw, 4rem); }
+    .gal img { width: 100%; height: auto; aspect-ratio: var(--ar, 3 / 2); object-fit: cover; border: 1px solid var(--line); }
+    @media (min-width: 900px) { .gal { grid-template-columns: repeat(var(--cols, 2), 1fr); gap: 24px; } }
+</style>
