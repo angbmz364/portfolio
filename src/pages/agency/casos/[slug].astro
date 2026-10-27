@@ -1,0 +1,43 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import AgencyHeader from "../../../components/agency/AgencyHeader.astro";
+import AgencyFooter from "../../../components/agency/AgencyFooter.astro";
+import StickyBar from "../../../components/agency/StickyBar.astro";
+import Reveal from "../../../components/agency/Reveal.astro";
+import CaseHero from "../../../components/agency/case/CaseHero.astro";
+import CaseStats from "../../../components/agency/case/CaseStats.astro";
+import CaseContext from "../../../components/agency/case/CaseContext.astro";
+import CaseStory from "../../../components/agency/case/CaseStory.astro";
+import CaseGallery from "../../../components/agency/case/CaseGallery.astro";
+import CaseVisual from "../../../components/agency/case/CaseVisual.astro";
+import CaseNext from "../../../components/agency/case/CaseNext.astro";
+import CaseClosing from "../../../components/agency/case/CaseClosing.astro";
+import { caseStudies } from "../../../data/cases.js";
+import "../../../styles/agency.css";
+
+export function getStaticPaths() {
+    return Object.keys(caseStudies).map((slug) => ({ params: { slug }, props: { c: caseStudies[slug] } }));
+}
+
+const { c } = Astro.props;
+---
+
+<Layout bare lang="es" title={c.title} description={c.description}>
+    <script is:inline slot="head">document.documentElement.classList.add("js");</script>
+    <div class="ag">
+        <AgencyHeader home={false} />
+        <main id="inicio">
+            <CaseHero eyebrow={c.eyebrow} h1={c.h1} lead={c.lead} hero={c.hero} />
+            {c.stats && <CaseStats {...c.stats} />}
+            <CaseContext context={c.context} values={c.values} facts={c.facts} />
+            <CaseStory story={c.story} />
+            {c.gallery && <CaseGallery gallery={c.gallery} />}
+            <CaseVisual {...c.visual} />
+            <CaseNext next={c.next} />
+            <CaseClosing {...c.closing} />
+        </main>
+        <AgencyFooter home={false} />
+        <StickyBar />
+    </div>
+    <Reveal />
+</Layout>
