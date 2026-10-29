@@ -6,6 +6,7 @@ const { gallery } = Astro.props;
 
 <section class="sec light" data-theme="light" aria-label="Galería">
     <div class="wrap">
-        <CaseImages {...gallery} />
+        {gallery.title && <span class="eyebrow rv">{gallery.title}</span>}
+        <CaseImages images={gallery.images} cols={gallery.cols} ar={gallery.ar} />
     </div>
 </section>
