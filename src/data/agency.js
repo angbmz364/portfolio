@@ -73,7 +73,7 @@ export const cases = [
         cat: "Turismo",
         name: "Chullos Travel Perú",
         teaser: "Tours que se entienden en un minuto y se reservan en uno.",
-        img: "/agency/chullos-travel-peru.webp",
+        img: "/agency/chullos-inicio.webp",
         alt: "Web de Chullos Travel Perú",
         pos: "top",
     },
