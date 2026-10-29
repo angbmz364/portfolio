@@ -4,29 +4,36 @@ const NB = " ";
 // cases are left out until the real Search Console / GA4 numbers arrive.
 export const caseStudies = {
     hospedaje: {
-        title: "Gran Hotel Virrey, hospedaje en Chanchamayo | SaskDev",
-        description: "Rediseño web del Gran Hotel Virrey: cada habitación, tarifa y botón de reserva llega directo a WhatsApp.",
+        title: "Albergue Schuler, hospedaje en San Ramón | SaskDev",
+        description: "Web del Albergue Schuler: cada habitación, la piscina y el desayuno llevan directo a WhatsApp con la consulta ya escrita.",
         eyebrow: "Hospedaje en Chanchamayo",
-        h1: "Un hotel que se reserva solo, desde el celular.",
-        lead: "Rediseñamos la web del Gran Hotel Virrey para que cada habitación, tarifa y botón de reserva llegue directo a WhatsApp, en menos de tres toques.",
-        hero: { src: "/agency/gran-hotel-virrey.webp", alt: "Web del Gran Hotel Virrey, página de inicio", w: 1200, h: 750, pos: "top" },
-        context: "Un hotel con piscina y vista a la selva vende con fotos y con confianza. La web tenía fotos buenas, pero las habitaciones, las tarifas y el contacto estaban enterrados.",
-        facts: [["Servicios", "Diseño web, arquitectura de contenidos, botones de reserva a WhatsApp, SEO técnico, analítica web."]],
+        h1: "Un albergue que se consulta desde el celular, en un toque.",
+        lead: "Diseñamos la web del Albergue Schuler para que cada habitación, la piscina y el desayuno lleven directo a WhatsApp, con el mensaje de consulta ya escrito.",
+        hero: { src: "/agency/albergue-schuler-inicio.webp", alt: "Web del Albergue Schuler, página de inicio con vista aérea del albergue y la piscina", w: 1440, h: 880, pos: "top" },
+        context: "Un alojamiento familiar con piscina y vista a las colinas vende con fotos y con confianza. El albergue vivía solo en Facebook: sin web propia, las habitaciones, el desayuno y el contacto quedaban enterrados entre publicaciones.",
+        facts: [["Servicios", "Diseño web, arquitectura de contenidos, botones de consulta a WhatsApp, SEO técnico, datos estructurados para Google."]],
         story: [
-            ["El reto", "Un visitante que llega desde Google quiere tres respuestas en la primera pantalla: cuánto cuesta una noche, qué incluye y cómo reservar. La web no las daba con claridad, y muchas visitas se iban sin escribir."],
-            ["La solución", "Ordenamos la página por decisiones: primero la habitación y el precio, después la experiencia, al final la reserva. Cada habitación tiene su botón con un mensaje ya escrito para WhatsApp. El SEO técnico y la analítica quedaron instalados para medir desde el primer día."],
+            ["El reto", "Un visitante que llega desde Google o Facebook quiere tres respuestas rápido: cómo es el lugar, qué incluye y cómo consultar. En Facebook esa información está repartida en publicaciones, y las fotos llegan en baja resolución."],
+            ["La solución", "Ordenamos la web por decisiones: primero el alojamiento y la vista, después la piscina y el desayuno, al final la ubicación y el contacto. Cada tarjeta tiene su botón Consultar con un mensaje ya escrito para WhatsApp. Los datos del hospedaje quedaron marcados para Google desde el inicio."],
         ],
+        gallery: {
+            title: "La página completa",
+            cols: 1,
+            ar: "auto",
+            images: [
+                { src: "/agency/albergue-schuler-alojamiento.webp", alt: "Web del Albergue Schuler, sección de alojamiento con habitaciones, piscina y desayuno", w: 1440, h: 1127 },
+                { src: "/agency/albergue-schuler-destacados.webp", alt: "Web del Albergue Schuler, banners de piscina al aire libre, desayuno incluido y atención familiar", w: 1440, h: 1104 },
+                { src: "/agency/albergue-schuler-ubicacion.webp", alt: "Web del Albergue Schuler, ubicación en el Pasaje Rasquio y pie de página con contacto", w: 1440, h: 1076 },
+            ],
+        },
         visual: {
             title: "El huésped decide con fotos. La web las ordena.",
-            lead: "Fondo oscuro para las fotos de habitaciones, blanco para las tarifas, una sola acción en cada pantalla.",
-            images: [{ src: "/agency/gran-hotel-virrey.webp", alt: "Detalle de la web del Gran Hotel Virrey con las habitaciones y el botón de reserva", w: 1200, h: 750, pos: "50% 100%" }],
-            cols: 1,
-            ar: "16/9",
+            lead: "Fotos grandes de la piscina y la vista, el azul del escudo del albergue para la acción, una sola ruta hacia la consulta.",
         },
         next: "turismo",
         closing: {
-            title: "¿Tienes un hotel y quieres una web así?",
-            msg: "Hola SaskDev, vi el caso del hotel y quiero una web así para mi hospedaje.",
+            title: "¿Tienes un hospedaje y quieres una web así?",
+            msg: "Hola SaskDev, vi el caso del Albergue Schuler y quiero una web así para mi hospedaje.",
         },
     },
     turismo: {
@@ -116,7 +123,7 @@ export const caseStudies = {
 };
 
 export const nextLabel = {
-    hospedaje: "Hospedaje: Gran Hotel Virrey",
+    hospedaje: "Hospedaje: Albergue Schuler",
     turismo: "Turismo: Chullos Travel Perú",
     centinela: "Proyecto propio: Centinela",
 };

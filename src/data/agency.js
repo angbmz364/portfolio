@@ -62,10 +62,10 @@ export const cases = [
     {
         slug: "hospedaje",
         cat: "Hospedaje",
-        name: "Gran Hotel Virrey",
-        teaser: "Un hotel que se reserva solo, desde el celular.",
-        img: "/agency/gran-hotel-virrey.webp",
-        alt: "Web de Gran Hotel Virrey",
+        name: "Albergue Schuler",
+        teaser: "Un albergue que se consulta desde el celular, en un toque.",
+        img: "/agency/albergue-schuler-inicio.webp",
+        alt: "Web del Albergue Schuler",
         pos: "top",
     },
     {
